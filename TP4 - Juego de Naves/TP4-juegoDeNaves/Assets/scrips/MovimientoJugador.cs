@@ -14,6 +14,7 @@ public class MovimientoJugador : MonoBehaviour {
 	void Start () {
         x = refJugador.transform.position.x;
         z = refJugador.transform.position.z;
+        transform.Rotate(new Vector3(90, 0, 0));
 	}
 	
 	// Update is called once per frame

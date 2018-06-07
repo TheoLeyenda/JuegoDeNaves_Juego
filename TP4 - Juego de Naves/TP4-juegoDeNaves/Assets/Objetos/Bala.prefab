@@ -20,7 +20,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4794623448244652}
   - component: {fileID: 212384366255894872}
-  - component: {fileID: 114005612786603396}
+  - component: {fileID: 114900680996364578}
+  - component: {fileID: 58240789400159302}
   m_Layer: 0
   m_Name: Bala
   m_TagString: Untagged
@@ -41,7 +42,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &114005612786603396
+--- !u!58 &58240789400159302
+CircleCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1683694041607894}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.1
+--- !u!114 &114900680996364578
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -52,9 +68,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08b2d27532d1ace49a9178bec4bb2bef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  refJugador: {fileID: 0}
-  refCamara: {fileID: 0}
-  velocidad: 0
+  refCamara: {fileID: 20762186527833218, guid: 04ae7aaffd51a3f4db78f4ea1d1b739e, type: 2}
 --- !u!212 &212384366255894872
 SpriteRenderer:
   m_ObjectHideFlags: 1

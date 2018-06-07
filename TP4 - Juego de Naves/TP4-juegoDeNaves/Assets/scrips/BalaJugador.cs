@@ -3,65 +3,31 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class BalaJugador : MonoBehaviour {
-    private float origenX;
-    private float origenZ;
-    private float origenY;
-    private float correrPosX;
-    private float correrPosZ;
-    private int tipoDisparo;
-    private bool disparar;
-    public GameObject refJugador;
-    //public GameObject refBala;
+
+    // Use this for initialization
+    private int _tipoDisparo;
+    Vector3 direccion;
     public Camera refCamara;
-    public GameObject refBala;
-    public float velocidad;
-    private Vector3 direccion;
-	// Use this for initialization
+    private float velocidad;
 	void Start () {
-        velocidad = 1f;
-        correrPosX = 0;
-        correrPosZ = 0;
-        origenX = refJugador.transform.position.x;
-        origenY = refJugador.transform.position.y; 
-        origenZ = refJugador.transform.position.z;
-        transform.Rotate(new Vector3(90, 0, 0));
-        tipoDisparo = 1;
-        disparar = false;
-        //direccion = new Vector3(origenX, 0, origenZ);
+        _tipoDisparo = GameManager.tipoDisparo;
+        velocidad = 0;
     }
 	
 	// Update is called once per frame
 	void Update () {
         //FIJARSE COMO ESTA HECHO EL DISPARO EN EL FPS Y PASARLO
-
-
-        //Debug.Log("tipo:"+tipoDisparo);
-        if (tipoDisparo == 1)
+       
+        if (_tipoDisparo == 1)
         {
-            direccion = new Vector3(origenX, 0, origenZ);
-            origenZ = origenZ + velocidad;
+            velocidad = 0.5f;
+            direccion = new Vector3(transform.position.x, transform.position.y+velocidad, transform.position.z);
             transform.position = direccion;
+            
         }
-
-        if (Input.GetKeyDown(KeyCode.Z))
-        {
-            refBala = Instantiate(refBala, direccion, Quaternion.identity);
-            disparar = true;
-            //Debug.Log(refBala.GetComponent<BalaJugador>().getTipoDisparo());
-        }
-        if (transform.position.z > refCamara.transform.position.z + 25 && disparar)
+        if (transform.position.y > refCamara.transform.position.y + 25)
         {
             Destroy(this.gameObject);
-            disparar = false;
-            //Debug.Log(transform.position.z);
         }
-    }
-    public void setTipoDisparo(int _tipoDisparo)
-    {
-        tipoDisparo = _tipoDisparo;
-    }
-    public int getTipoDisparo()
-    {
-        return tipoDisparo;
     }
 }

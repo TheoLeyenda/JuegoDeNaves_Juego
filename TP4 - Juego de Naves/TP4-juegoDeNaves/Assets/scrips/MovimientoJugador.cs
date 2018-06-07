@@ -10,37 +10,37 @@ public class MovimientoJugador : MonoBehaviour {
     private Vector3 direcion;
     public float velocidadJugador;
     private float x;
-    private float z;
+    private float y;
 	void Start () {
         x = refJugador.transform.position.x;
-        z = refJugador.transform.position.z;
-        transform.Rotate(new Vector3(90, 0, 0));
+        y = refJugador.transform.position.z;
+        //transform.Rotate(new Vector3(90, 0, 0));
 	}
 	
 	// Update is called once per frame
 	void Update () {
         if (Input.GetKey(KeyCode.UpArrow))
         {
-            z = z + velocidadJugador;
-            direcion = new Vector3(x, 0, z);
+            y = y + velocidadJugador;
+            direcion = new Vector3(x, y, 0);
             refJugador.transform.position = direcion;
         }
         if (Input.GetKey(KeyCode.LeftArrow))
         {
             x = x - velocidadJugador;
-            direcion = new Vector3(x, 0, z);
+            direcion = new Vector3(x, y, 0);
             refJugador.transform.position = direcion;
         }
         if (Input.GetKey(KeyCode.RightArrow))
         {
             x = x + velocidadJugador;
-            direcion = new Vector3(x, 0, z);
+            direcion = new Vector3(x, y, 0);
             refJugador.transform.position = direcion;
         }
         if (Input.GetKey(KeyCode.DownArrow))
         {
-            z = z - velocidadJugador;
-            direcion = new Vector3(x, 0, z);
+            y = y - velocidadJugador;
+            direcion = new Vector3(x, y, 0);
             refJugador.transform.position = direcion;
         }
        // direcion = new Vector3(x, 0, z);

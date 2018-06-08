@@ -30,4 +30,13 @@ public class BalaJugador : MonoBehaviour {
             Destroy(this.gameObject);
         }
     }
+    private void OnTriggerEnter(Collider collision)
+    {
+        //Debug.Log("ENTRE A TRIGGERED");
+        if (collision.transform.gameObject.tag == "Enemigo")
+        {
+            Destroy(collision.transform.gameObject);
+            Destroy(this.gameObject);
+        }
+    }
 }

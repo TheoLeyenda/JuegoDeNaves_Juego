@@ -19,25 +19,25 @@ public class MovimientoJugador : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if (Input.GetKey(KeyCode.UpArrow))
+        if (Input.GetKey(KeyCode.UpArrow) && refCamara.WorldToScreenPoint(transform.position).y<refCamara.pixelHeight)
         {
             y = y + velocidadJugador;
             direcion = new Vector3(x, y, 0);
             refJugador.transform.position = direcion;
         }
-        if (Input.GetKey(KeyCode.LeftArrow))
+        if (Input.GetKey(KeyCode.LeftArrow) && refCamara.WorldToScreenPoint(transform.position).x>0)
         {
             x = x - velocidadJugador;
             direcion = new Vector3(x, y, 0);
             refJugador.transform.position = direcion;
         }
-        if (Input.GetKey(KeyCode.RightArrow))
+        if (Input.GetKey(KeyCode.RightArrow) && refCamara.WorldToScreenPoint(transform.position).x < refCamara.pixelWidth)
         {
             x = x + velocidadJugador;
             direcion = new Vector3(x, y, 0);
             refJugador.transform.position = direcion;
         }
-        if (Input.GetKey(KeyCode.DownArrow))
+        if (Input.GetKey(KeyCode.DownArrow) && refCamara.WorldToScreenPoint(transform.position).y > 0)
         {
             y = y - velocidadJugador;
             direcion = new Vector3(x, y, 0);

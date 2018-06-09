@@ -7,6 +7,8 @@ public class BalaJugador : MonoBehaviour {
     // Use this for initialization
     private int _tipoBala;
     Vector3 direccion;
+    //public ScriptPuntaje punticos;
+    //public GameManager gm;
     public int tipoBala;
     private float randomItem;
     private float maxRandomItem = 5;
@@ -80,7 +82,10 @@ public class BalaJugador : MonoBehaviour {
         //Debug.Log("ENTRE A TRIGGERED");
         if (collision.transform.gameObject.tag == "Enemigo")
         {
+            //punticos.setPuntos(punticos.getPuntos() + 100);
+            
             Destroy(collision.transform.gameObject);
+            
             randomItem = Random.Range(1, maxRandomItem);
             if ((int)randomItem == 1)
             {
@@ -90,7 +95,9 @@ public class BalaJugador : MonoBehaviour {
             {
                 Instantiate(refItemPoder, collision.transform.position, Quaternion.identity);
             }
+            GameManager.Get().puntos = GameManager.Get().puntos + 100;
             Destroy(this.gameObject);
         }
     }
+    
 }

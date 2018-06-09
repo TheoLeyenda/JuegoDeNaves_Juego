@@ -13,6 +13,9 @@ public class DisparoJugador : MonoBehaviour {
     public GameObject TipoBala4;
     public GameObject TipoBala5;
     public GameObject bombaJugador;
+    public GameObject SpriteBomba1;
+    public GameObject SpriteBomba2;
+    public GameObject SpriteBomba3;
     private RaycastHit hit;
     public float rango;
     private int cantBombas;
@@ -58,6 +61,18 @@ public class DisparoJugador : MonoBehaviour {
         {
             Debug.Log("EXplotion");
             bombaJugador.SetActive(true);
+            if (cantBombas == 3)
+            {
+                SpriteBomba1.SetActive(false);
+            }
+            if (cantBombas == 2)
+            {
+                SpriteBomba2.SetActive(false);
+            }
+            if (cantBombas == 1)
+            {
+                SpriteBomba3.SetActive(false);
+            }
             cantBombas--;
         }
         

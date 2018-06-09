@@ -8,6 +8,8 @@ TagManager:
   - Enemigo
   - BarraVida
   - BalaEnemigo
+  - ItemVida
+  - ItemPoder
   layers:
   - Default
   - TransparentFX

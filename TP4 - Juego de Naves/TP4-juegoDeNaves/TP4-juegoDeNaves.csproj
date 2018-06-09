@@ -242,6 +242,7 @@
     <Compile Include="Assets\scrips\BarraVida.cs" />
     <Compile Include="Assets\scrips\BombaJugador.cs" />
     <Compile Include="Assets\scrips\DisparoJugador.cs" />
+    <Compile Include="Assets\scrips\Enemigo.cs" />
     <Compile Include="Assets\scrips\GameManager.cs" />
     <Compile Include="Assets\scrips\MovimientoJugador.cs" />
   </ItemGroup>

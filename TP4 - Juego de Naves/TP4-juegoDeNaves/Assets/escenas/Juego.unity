@@ -122,6 +122,7 @@ GameObject:
   m_Component:
   - component: {fileID: 45603162}
   - component: {fileID: 45603163}
+  - component: {fileID: 45603164}
   m_Layer: 5
   m_Name: BarraDeVida
   m_TagString: Untagged
@@ -195,6 +196,17 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.Scrollbar+ScrollEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!114 &45603164
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 45603161}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b881ce1f668fb6341bc5d3f04bd22f2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &265583905
 GameObject:
   m_ObjectHideFlags: 0
@@ -328,7 +340,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   refCamara: {fileID: 722776972}
   refJugador: {fileID: 346652144}
-  velocidadJugador: 0.5
+  velocidadJugador: 0.2
 --- !u!212 &346652147
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -383,7 +395,7 @@ Transform:
   m_GameObject: {fileID: 346652144}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 10, y: 10, z: 10}
+  m_LocalScale: {x: 5, y: 5, z: 5}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 2
@@ -428,6 +440,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BarraDeVida: {fileID: 45603163}
   Vida: 100
+--- !u!1 &496382874 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1332592907503378, guid: 888569f35b9931c47a65c4f90576aa76,
+    type: 2}
+  m_PrefabInternal: {fileID: 1582736325}
+--- !u!114 &496382875
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 496382874}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c1eaebb0c3d9134eb29734aa02da19e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tipoEnemigo: 1
+  tiempoAntesDeDoblar1: 3
 --- !u!1 &644632829 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1468987156873992, guid: 04ae7aaffd51a3f4db78f4ea1d1b739e,
@@ -615,11 +645,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4942490610837986, guid: 888569f35b9931c47a65c4f90576aa76, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -9.104353
+      value: 9.34
       objectReference: {fileID: 0}
     - target: {fileID: 4942490610837986, guid: 888569f35b9931c47a65c4f90576aa76, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -1.8384821
+      value: 10.82
       objectReference: {fileID: 0}
     - target: {fileID: 4942490610837986, guid: 888569f35b9931c47a65c4f90576aa76, type: 2}
       propertyPath: m_LocalPosition.z
@@ -645,6 +675,18 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4942490610837986, guid: 888569f35b9931c47a65c4f90576aa76, type: 2}
+      propertyPath: m_LocalScale.x
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4942490610837986, guid: 888569f35b9931c47a65c4f90576aa76, type: 2}
+      propertyPath: m_LocalScale.y
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4942490610837986, guid: 888569f35b9931c47a65c4f90576aa76, type: 2}
+      propertyPath: m_LocalScale.z
+      value: 5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 888569f35b9931c47a65c4f90576aa76, type: 2}
   m_IsPrefabParent: 0
@@ -658,9 +700,10 @@ GameObject:
   - component: {fileID: 1583671148}
   - component: {fileID: 1583671150}
   - component: {fileID: 1583671149}
+  - component: {fileID: 1583671151}
   m_Layer: 5
   m_Name: vida
-  m_TagString: Untagged
+  m_TagString: BarraVida
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -716,6 +759,17 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1583671147}
+--- !u!114 &1583671151
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1583671147}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b881ce1f668fb6341bc5d3f04bd22f2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1749464845
 Prefab:
   m_ObjectHideFlags: 0

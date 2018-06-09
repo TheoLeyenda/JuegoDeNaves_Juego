@@ -85,7 +85,8 @@ MonoBehaviour:
   refCamara: {fileID: 20762186527833218, guid: 04ae7aaffd51a3f4db78f4ea1d1b739e, type: 2}
   refItemVida: {fileID: 1628154389541842, guid: 967395b3256af8c40aded2c397e026ba,
     type: 2}
-  refItemPoder: {fileID: 0}
+  refItemPoder: {fileID: 1754258421609038, guid: 78a7345227762ec49a889d1f1decb047,
+    type: 2}
 --- !u!212 &212420151295984060
 SpriteRenderer:
   m_ObjectHideFlags: 1

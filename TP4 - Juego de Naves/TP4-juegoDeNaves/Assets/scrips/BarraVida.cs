@@ -43,7 +43,7 @@ public class BarraVida : MonoBehaviour {
         }
         if (other.gameObject.tag == "ItemPoder")
         {
-            if (GameManager.tipoDisparo < 3)
+            if (GameManager.tipoDisparo < 5)
             {
                 GameManager.tipoDisparo++;
             }

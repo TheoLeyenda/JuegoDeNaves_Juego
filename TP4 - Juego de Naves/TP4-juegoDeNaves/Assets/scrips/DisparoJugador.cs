@@ -10,6 +10,8 @@ public class DisparoJugador : MonoBehaviour {
     public GameObject TipoBala1;
     public GameObject TipoBala2;
     public GameObject TipoBala3;
+    public GameObject TipoBala4;
+    public GameObject TipoBala5;
     public GameObject bombaJugador;
     private RaycastHit hit;
     public float rango;
@@ -35,11 +37,21 @@ public class DisparoJugador : MonoBehaviour {
             }
             if (GameManager.tipoDisparo == 3)
             {
-                Debug.Log("ENTRE A 3");
+                
                 Instantiate(TipoBala1, new Vector3(spawnBala.position.x + 0.2f, spawnBala.position.y + 0.8f, spawnBala.position.z), Quaternion.identity);
                 Instantiate(TipoBala1, new Vector3(spawnBala.position.x - 0.2f, spawnBala.position.y + 0.8f, spawnBala.position.z), Quaternion.identity);
                 Instantiate(TipoBala2, new Vector3(spawnBala.position.x + 0.4f, spawnBala.position.y + 0.8f, spawnBala.position.z), Quaternion.identity);
                 Instantiate(TipoBala3, new Vector3(spawnBala.position.x + -0.4f, spawnBala.position.y + 0.8f, spawnBala.position.z), Quaternion.identity);
+                
+            }
+            if (GameManager.tipoDisparo == 4)
+            {
+                Instantiate(TipoBala1, new Vector3(spawnBala.position.x + 0.2f, spawnBala.position.y + 0.8f, spawnBala.position.z), Quaternion.identity);
+                Instantiate(TipoBala1, new Vector3(spawnBala.position.x - 0.2f, spawnBala.position.y + 0.8f, spawnBala.position.z), Quaternion.identity);
+                Instantiate(TipoBala2, new Vector3(spawnBala.position.x + 0.4f, spawnBala.position.y + 0.8f, spawnBala.position.z), Quaternion.identity);
+                Instantiate(TipoBala3, new Vector3(spawnBala.position.x + -0.4f, spawnBala.position.y + 0.8f, spawnBala.position.z), Quaternion.identity);
+                Instantiate(TipoBala4, new Vector3(spawnBala.position.x + -0.5f, spawnBala.position.y, spawnBala.position.z), Quaternion.identity);
+                Instantiate(TipoBala5, new Vector3(spawnBala.position.x + 0.5f, spawnBala.position.y, spawnBala.position.z), Quaternion.identity);
             }
         }
         if (Input.GetKeyDown(KeyCode.Space) && cantBombas>0)

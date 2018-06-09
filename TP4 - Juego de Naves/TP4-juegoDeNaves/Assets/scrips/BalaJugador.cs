@@ -23,7 +23,6 @@ public class BalaJugador : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        //FIJARSE COMO ESTA HECHO EL DISPARO EN EL FPS Y PASARLO
        
         if (_tipoBala == 1)
         {
@@ -46,11 +45,32 @@ public class BalaJugador : MonoBehaviour {
             velocidadX = -0.5f;
             direccion = new Vector3(transform.position.x + velocidadX, transform.position.y + velocidadY + velocidadY, transform.position.z);
             transform.position = direccion;
-
+        }
+        if (_tipoBala == 4)
+        {
+            velocidadX = -0.5f;
             direccion = new Vector3(transform.position.x + velocidadX, transform.position.y + velocidadY + velocidadY, transform.position.z);
             transform.position = direccion;
         }
-        if (transform.position.y > refCamara.transform.position.y + 25)
+        if (_tipoBala == 5)
+        {
+            velocidadX = 0.5f;
+            direccion = new Vector3(transform.position.x + velocidadX, transform.position.y + velocidadY + velocidadY, transform.position.z);
+            transform.position = direccion;
+        }
+        if (transform.position.x > refCamara.transform.position.x + 25)
+        {
+            Destroy(this.gameObject);
+        }
+        if (transform.position.x < -refCamara.transform.position.x - 25)
+        {
+            Destroy(this.gameObject);
+        }
+        if (transform.position.y > refCamara.transform.position.y + 25 )
+        {
+            Destroy(this.gameObject);
+        }
+        if (transform.position.y < -refCamara.transform.position.y - 25)
         {
             Destroy(this.gameObject);
         }
@@ -65,6 +85,10 @@ public class BalaJugador : MonoBehaviour {
             if ((int)randomItem == 1)
             {
                 Instantiate(refItemVida, collision.transform.position, Quaternion.identity);
+            }
+            if((int)randomItem == 3)
+            {
+                Instantiate(refItemPoder, collision.transform.position, Quaternion.identity);
             }
             Destroy(this.gameObject);
         }

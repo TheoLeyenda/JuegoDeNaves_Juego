@@ -6,6 +6,7 @@ public class Enemigo : MonoBehaviour {
 
     // Use this for initialization
     public int tipoEnemigo;
+    //public GameObject instanciador;
     private float movimientoY;
     private float movimientoX;
     private float velocidadX;
@@ -16,6 +17,7 @@ public class Enemigo : MonoBehaviour {
     private float tiempoAntesDeDoblar2;
     private float tiempoAntesDeDoblar3;
     private float empezarSegundaCurvaMov1;
+    private float empezarCurvaMov2;
     public float velocidadRotacion;
     private float rotacionCurvaMov1;
     private bool primerCurvaMov1;
@@ -26,7 +28,11 @@ public class Enemigo : MonoBehaviour {
     private float varAux2 = 0.001f;//NO TOCAR
     private float vida;
     private float dileyDisparo;
+    private float dileyCambioDireccion;
+    private bool doblarIzquierda;
+    private bool doblarDerecha;
     private float asignarDiley;
+    bool soloUnaVez;
 	void Start () {
         vida = 100;
         movimientoX = 0;
@@ -40,12 +46,16 @@ public class Enemigo : MonoBehaviour {
         segundaCurvaMov1 = true;
         inicialX = transform.position.x;
         inicialY = transform.position.y;
-        asignarDiley = 0.5f;
+        asignarDiley = 0.8f;// cada este tiepoDisparara
         dileyDisparo = asignarDiley;
+        empezarCurvaMov2 =11;
+        dileyCambioDireccion = 1;
+        soloUnaVez = true;
     }
 	
 	// Update is called once per frame
 	void Update () {
+        transform.position = new Vector2(transform.position.x + movimientoX, transform.position.y + movimientoY);
         if (transform.position.y > refCamara.transform.position.y + 25 || transform.position.y < (refCamara.transform.position.y + 25) * -1 || transform.position.x> refCamara.pixelWidth+10 || transform.position.x < (refCamara.pixelWidth+10)*-1)
         {
             Destroy(this.gameObject);
@@ -70,7 +80,7 @@ public class Enemigo : MonoBehaviour {
                     if (movimientoY <= varAux1 && primerCurvaMov1)
                     {
                         movimientoY = movimientoY + rotacionCurvaMov1;
-                        transform.RotateAround(transform.position, transform.up * -1, velocidadRotacion * Time.deltaTime);
+                        transform.RotateAround(transform.position, transform.right * -1, velocidadRotacion * Time.deltaTime);
                         //transform.RotateAroundLocal(transform.up * -1, velocidadRotacion * Time.deltaTime);
                         //transform.Rotate(new Vector3(0f, 30f, 0f)*Time.deltaTime);
 
@@ -88,7 +98,7 @@ public class Enemigo : MonoBehaviour {
                     if (movimientoY <= 0.1 && segundaCurvaMov1)
                     {
                         movimientoY = movimientoY + rotacionCurvaMov1;
-                        transform.RotateAround(transform.position, transform.up * -1, velocidadRotacion * Time.deltaTime);
+                        transform.RotateAround(transform.position, transform.right * -1, velocidadRotacion * Time.deltaTime);
                         //transform.RotateAroundLocal(transform.up * -1, velocidadRotacion * Time.deltaTime);
                         //transform.Rotate(new Vector3(0f, 30f, 0f) * Time.deltaTime);
                     }
@@ -107,6 +117,7 @@ public class Enemigo : MonoBehaviour {
             }
             if (inicialX > 0)
             {
+               
                 if (dileyDisparo > 0)
                 {
                     dileyDisparo = dileyDisparo - Time.deltaTime;
@@ -134,7 +145,7 @@ public class Enemigo : MonoBehaviour {
                     if (movimientoY <= 0.1 && segundaCurvaMov1)
                     {
                         movimientoY = movimientoY + rotacionCurvaMov1;
-                        transform.RotateAround(transform.position, transform.up * -1, velocidadRotacion * Time.deltaTime);
+                        transform.RotateAround(transform.position, transform.right * -1, velocidadRotacion * Time.deltaTime);
                         //transform.RotateAroundLocal(transform.up * -1, velocidadRotacion * Time.deltaTime);
                         //transform.Rotate(new Vector3(0f, 30f, 0f) * Time.deltaTime);
                     }
@@ -151,11 +162,107 @@ public class Enemigo : MonoBehaviour {
                         dileyDisparo = asignarDiley;
                   }
             }
-            transform.position = new Vector2(transform.position.x+movimientoX, transform.position.y+movimientoY);
+           
         }
         if (tipoEnemigo == 2)
         {
 
+            transform.position = new Vector2(transform.position.x + movimientoX, transform.position.y + movimientoY);
+            if (inicialX < 0)
+            {
+                if (inicialX < 0 && soloUnaVez)
+                {
+                    velocidadY = -0.025f;
+                    velocidadX = 0.2f;
+                    soloUnaVez = false;
+                    doblarIzquierda = false;
+                    doblarDerecha = true;
+
+                }
+                if (transform.position.x >= empezarCurvaMov2 && doblarDerecha)
+                {
+                    velocidadX = velocidadX * -1;
+                    dileyCambioDireccion = 0;
+                    doblarDerecha = false;
+                    doblarIzquierda = true;
+                }
+                if (transform.position.x <= -empezarCurvaMov2 && doblarIzquierda)
+                {
+                    velocidadX = velocidadX * -1;
+                    dileyCambioDireccion = 0;
+                    doblarIzquierda = false;
+                    doblarDerecha = true;
+                }
+                if (dileyCambioDireccion <= 1f)
+                {
+                    dileyCambioDireccion = dileyCambioDireccion + Time.deltaTime;
+                }
+                movimientoX = velocidadX;
+                movimientoY = velocidadY;
+            }
+            if (inicialX > 0)
+            {
+                if (inicialX > 0 && soloUnaVez)
+                {
+                    velocidadY = -0.025f;
+                    velocidadX = -0.2f;
+                    soloUnaVez = false;
+                    doblarIzquierda = true;
+                    doblarDerecha = false;
+
+                }
+                if (transform.position.x >= empezarCurvaMov2 && doblarDerecha)
+                {
+                    velocidadX = velocidadX * -1;
+                    dileyCambioDireccion = 0;
+                    doblarDerecha = false;
+                    doblarIzquierda = true;
+                }
+                if (transform.position.x <= -empezarCurvaMov2 && doblarIzquierda)
+                {
+                    velocidadX = velocidadX * -1;
+                    dileyCambioDireccion = 0;
+                    doblarIzquierda = false;
+                    doblarDerecha = true;
+                }
+                if (dileyCambioDireccion <= 1f)
+                {
+                    dileyCambioDireccion = dileyCambioDireccion + Time.deltaTime;
+                }
+                movimientoX = velocidadX;
+                movimientoY = velocidadY;
+            }
         }
-	}
+        if (tipoEnemigo == 3)
+        {
+            if (inicialX < 0)
+            {
+                transform.position = new Vector2(transform.position.x + movimientoX, transform.position.y + movimientoY);
+                movimientoY = -0.2f;
+                movimientoX = 0.25f;
+            }
+            if (inicialX > 0)
+            {
+                transform.position = new Vector2(transform.position.x + movimientoX, transform.position.y + movimientoY);
+                movimientoY = -0.2f;
+                movimientoX = -0.25f;
+            }
+
+        }
+        if(tipoEnemigo == 4)
+        {
+            movimientoX = 0;
+            movimientoY = -0.05f;
+            transform.position = new Vector2(transform.position.x + movimientoX, transform.position.y + movimientoY);
+            if (dileyDisparo > 0)
+            {
+                dileyDisparo = dileyDisparo - Time.deltaTime;
+            }
+            if ((movimientoX == 0 || velocidadX == 0) && dileyDisparo <= 0)
+            {
+                Instantiate(refBalaEnemigo, transform.position, transform.rotation);
+                dileyDisparo = asignarDiley;
+            }
+        }
+    }
 }

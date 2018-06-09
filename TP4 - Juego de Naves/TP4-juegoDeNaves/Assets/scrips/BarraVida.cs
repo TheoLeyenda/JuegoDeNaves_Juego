@@ -31,8 +31,10 @@ public class BarraVida : MonoBehaviour {
     {
         if (other.gameObject.tag == "Enemigo")
         {
+            danio = 5;
             Vida -= danio;
             BarraDeVida.size = Vida / 100f;
+            Destroy(other.gameObject);
         }
     }
 

@@ -16,6 +16,17 @@ public class BarraVida : MonoBehaviour {
             SceneManager.LoadScene("EscenaFinal");
         }
     }
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "BalaEnemigo")
+        {
+            danio = 1;
+            Vida -= danio;
+            BarraDeVida.size = Vida / 100f;
+            danio = 0.5f;
+            Destroy(other.gameObject);
+        }
+    }
     private void OnTriggerStay(Collider other)
     {
         if (other.gameObject.tag == "Enemigo")

@@ -16,12 +16,17 @@ public class Enemigo : MonoBehaviour {
     private float tiempoAntesDeDoblar2;
     private float tiempoAntesDeDoblar3;
     private float empezarSegundaCurvaMov1;
+    public float velocidadRotacion;
     private float rotacionCurvaMov1;
     private bool primerCurvaMov1;
+    public GameObject refBalaEnemigo;
+    public Camera refCamara;
     private bool segundaCurvaMov1;
     private float varAux1 = 0.01f;//NO TOCAR
     private float varAux2 = 0.001f;//NO TOCAR
     private float vida;
+    private float dileyDisparo;
+    private float asignarDiley;
 	void Start () {
         vida = 100;
         movimientoX = 0;
@@ -35,10 +40,16 @@ public class Enemigo : MonoBehaviour {
         segundaCurvaMov1 = true;
         inicialX = transform.position.x;
         inicialY = transform.position.y;
+        asignarDiley = 0.5f;
+        dileyDisparo = asignarDiley;
     }
 	
 	// Update is called once per frame
 	void Update () {
+        if (transform.position.y > refCamara.transform.position.y + 25 || transform.position.y < (refCamara.transform.position.y + 25) * -1 || transform.position.x> refCamara.pixelWidth+10 || transform.position.x < (refCamara.pixelWidth+10)*-1)
+        {
+            Destroy(this.gameObject);
+        }
         if (tipoEnemigo == 1)
         {
             
@@ -49,12 +60,20 @@ public class Enemigo : MonoBehaviour {
             }
             if (inicialX < 0)
             {
+                if (dileyDisparo > 0)
+                {
+                    dileyDisparo = dileyDisparo - Time.deltaTime;
+                }
                 if (inicialX < 0 && tiempoAntesDeDoblar1 <= 0)
                 {
                     movimientoX = velocidadX;
                     if (movimientoY <= varAux1 && primerCurvaMov1)
                     {
                         movimientoY = movimientoY + rotacionCurvaMov1;
+                        transform.RotateAround(transform.position, transform.up * -1, velocidadRotacion * Time.deltaTime);
+                        //transform.RotateAroundLocal(transform.up * -1, velocidadRotacion * Time.deltaTime);
+                        //transform.Rotate(new Vector3(0f, 30f, 0f)*Time.deltaTime);
+
                     }
                     if (movimientoY >= varAux2 && primerCurvaMov1)
                     {
@@ -69,6 +88,9 @@ public class Enemigo : MonoBehaviour {
                     if (movimientoY <= 0.1 && segundaCurvaMov1)
                     {
                         movimientoY = movimientoY + rotacionCurvaMov1;
+                        transform.RotateAround(transform.position, transform.up * -1, velocidadRotacion * Time.deltaTime);
+                        //transform.RotateAroundLocal(transform.up * -1, velocidadRotacion * Time.deltaTime);
+                        //transform.Rotate(new Vector3(0f, 30f, 0f) * Time.deltaTime);
                     }
                     if (movimientoY >= 0.1f)
                     {
@@ -77,15 +99,27 @@ public class Enemigo : MonoBehaviour {
                         movimientoY = velocidadY;
                     }
                 }
+                if ((movimientoX == 0 || velocidadX == 0) && dileyDisparo <= 0)
+                {
+                    Instantiate(refBalaEnemigo,transform.position,transform.rotation);
+                    dileyDisparo = asignarDiley;
+                }
             }
             if (inicialX > 0)
             {
+                if (dileyDisparo > 0)
+                {
+                    dileyDisparo = dileyDisparo - Time.deltaTime;
+                }
                 if (inicialX > 0 && tiempoAntesDeDoblar1 <= 0)
                 {
                     movimientoX = -velocidadX;
                     if (movimientoY <= varAux1 && primerCurvaMov1)
                     {
                         movimientoY = movimientoY + rotacionCurvaMov1;
+                        transform.RotateAround(transform.position, transform.up * -1, velocidadRotacion * Time.deltaTime);
+                        //transform.RotateAroundLocal(transform.up * -1, velocidadRotacion * Time.deltaTime);
+                        //transform.Rotate(new Vector3(0f, 30f, 0f) * Time.deltaTime);
                     }
                     if (movimientoY >= varAux2 && primerCurvaMov1)
                     {
@@ -100,6 +134,9 @@ public class Enemigo : MonoBehaviour {
                     if (movimientoY <= 0.1 && segundaCurvaMov1)
                     {
                         movimientoY = movimientoY + rotacionCurvaMov1;
+                        transform.RotateAround(transform.position, transform.up * -1, velocidadRotacion * Time.deltaTime);
+                        //transform.RotateAroundLocal(transform.up * -1, velocidadRotacion * Time.deltaTime);
+                        //transform.Rotate(new Vector3(0f, 30f, 0f) * Time.deltaTime);
                     }
                     if (movimientoY >= 0.1f)
                     {
@@ -108,6 +145,11 @@ public class Enemigo : MonoBehaviour {
                         movimientoY = velocidadY;
                     }
                 }
+                  if ((movimientoX == 0 || velocidadX == 0) && dileyDisparo <= 0)
+                  {
+                        Instantiate(refBalaEnemigo, transform.position, transform.rotation);
+                        dileyDisparo = asignarDiley;
+                  }
             }
             transform.position = new Vector2(transform.position.x+movimientoX, transform.position.y+movimientoY);
         }

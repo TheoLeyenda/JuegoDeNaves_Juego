@@ -10,6 +10,7 @@ TagManager:
   - BalaEnemigo
   - ItemVida
   - ItemPoder
+  - FinNivel
   layers:
   - Default
   - TransparentFX

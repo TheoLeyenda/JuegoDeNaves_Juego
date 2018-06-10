@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class GameManager : MonoBehaviour {
     public static int tipoDisparo;
     public int puntos;
+    public int tipoEnemigo;
     public Text textoPuntaje;
     private static GameManager instance;
     //public static int tipoBala;
@@ -29,12 +30,16 @@ public class GameManager : MonoBehaviour {
         puntos = 0;
         instance = this;
     }
-    public void setPuntaje(int _puntaje)
+    public void SetPuntaje(int _puntaje)
     {
         puntos = _puntaje;
     }
-    public int getPuntaje()
+    public int GetPuntaje()
     {
         return puntos;
+    }
+    public void SetTipoEnemigo(int _tipoEnemigo)
+    {
+        tipoEnemigo = _tipoEnemigo;
     }
 }

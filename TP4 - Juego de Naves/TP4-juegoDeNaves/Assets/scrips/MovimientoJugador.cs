@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MovimientoJugador : MonoBehaviour {
 
@@ -46,4 +47,12 @@ public class MovimientoJugador : MonoBehaviour {
        // direcion = new Vector3(x, 0, z);
         //refJugador.transform.position = direcion;
 	}
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "FinNivel")
+        {
+            SceneManager.LoadScene("Texto_Nivel2");
+        }
+    }
 }
+

@@ -21,7 +21,7 @@ public class BarraVida : MonoBehaviour {
     {
         if (other.gameObject.tag == "BalaEnemigo")
         {
-            danio = 1;
+            danio = 2.5f;
             Vida -= danio;
             BarraDeVida.size = Vida / 100f;
             danio = 0.5f;
@@ -36,14 +36,14 @@ public class BarraVida : MonoBehaviour {
         }
         if (other.gameObject.tag == "ItemVida")
         {
-            sanacion = 100;
-            Vida = sanacion;
-            BarraDeVida.size = Vida ;
+            sanacion = 2f;
+            Vida = Vida +sanacion;
+            BarraDeVida.size = Vida/100 ;
             Destroy(other.gameObject);
         }
         if (other.gameObject.tag == "ItemPoder")
         {
-            if (GameManager.tipoDisparo < 5)
+            if (GameManager.tipoDisparo < 4)
             {
                 GameManager.tipoDisparo++;
             }

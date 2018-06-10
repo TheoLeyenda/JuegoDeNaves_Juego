@@ -11,6 +11,19 @@ TagManager:
   - ItemVida
   - ItemPoder
   - FinNivel
+  - ActivadorEnemigosPatron2
+  - ActivadorEnemigosPatron1
+  - ActivadorEscuadronPatron4
+  - ActivadorEscuadronPatron3
+  - ActivadorEscuadronPatron2
+  - ActivadorEscuadronPatron1
+  - ActivadorEnemigosPatron4
+  - ActivadorEnemigosPatron3
+  - EnemigoPatron1
+  - EnemigoPatron2
+  - EnemigoPatron3
+  - EnemigoPatron4
+  - Muro
   layers:
   - Default
   - TransparentFX

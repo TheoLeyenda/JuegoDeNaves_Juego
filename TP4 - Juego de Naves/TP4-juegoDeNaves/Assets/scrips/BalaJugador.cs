@@ -68,7 +68,7 @@ public class BalaJugador : MonoBehaviour {
         {
             Destroy(this.gameObject);
         }
-        if (transform.position.y > refCamara.transform.position.y + 25 )
+        if (transform.position.y > refCamara.transform.position.y + 15)
         {
             Destroy(this.gameObject);
         }

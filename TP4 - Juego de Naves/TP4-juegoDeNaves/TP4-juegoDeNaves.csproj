@@ -238,6 +238,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\scrips\ActivadorEnemigos1_Nivel1.cs" />
+    <Compile Include="Assets\scrips\ActivadorEnemigos2_Nivel1.cs" />
+    <Compile Include="Assets\scrips\ActivadorEnemigos3_Nivel1.cs" />
+    <Compile Include="Assets\scrips\ActivadorEnemigos4_Nivel1.cs" />
+    <Compile Include="Assets\scrips\ActivadorEnemigos5_Nivel1.cs" />
     <Compile Include="Assets\scrips\BalaEnemigo.cs" />
     <Compile Include="Assets\scrips\BalaJugador.cs" />
     <Compile Include="Assets\scrips\BarraVida.cs" />
@@ -247,6 +252,9 @@
     <Compile Include="Assets\scrips\GameManager.cs" />
     <Compile Include="Assets\scrips\MovimientoDelNivel.cs" />
     <Compile Include="Assets\scrips\MovimientoJugador.cs" />
+    <Compile Include="Assets\scrips\NewBehaviourScript.cs" />
+    <Compile Include="Assets\scrips\PasarNivel1.cs" />
+    <Compile Include="Assets\scrips\PasarNivel2.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />

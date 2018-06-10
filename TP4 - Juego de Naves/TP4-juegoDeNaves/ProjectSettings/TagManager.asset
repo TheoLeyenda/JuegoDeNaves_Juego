@@ -24,6 +24,8 @@ TagManager:
   - EnemigoPatron3
   - EnemigoPatron4
   - Muro
+  - Bala
+  - CamaraColicionadora
   layers:
   - Default
   - TransparentFX

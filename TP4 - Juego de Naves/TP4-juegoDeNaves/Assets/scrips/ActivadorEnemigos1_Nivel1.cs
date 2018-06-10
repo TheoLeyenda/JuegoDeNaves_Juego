@@ -32,7 +32,6 @@ public class ActivadorEnemigos1_Nivel1 : MonoBehaviour
         }
         if (other.gameObject.tag == "Jugador")
         {
-            Debug.Log("Jugador");
             activacion = 1;
         }
     }

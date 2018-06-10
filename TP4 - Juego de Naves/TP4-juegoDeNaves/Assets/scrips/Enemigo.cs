@@ -32,10 +32,14 @@ public class Enemigo : MonoBehaviour {
     private bool doblarIzquierda;
     private bool doblarDerecha;
     private float asignarDiley;
+    private float maxDerecha;
+    private float maxIzquierda;
     public bool quietos;
+    private float dileyDisparoPatron6;
     private static Enemigo instance;
+    private float randDisparo;
     bool soloUnaVez;
-	void Start () {
+    void Start() {
         vida = 100;
         movimientoX = 0;
         movimientoY = 0;
@@ -43,17 +47,19 @@ public class Enemigo : MonoBehaviour {
         velocidadY = 0.1f;
         //tiempoAntesDeDoblar1 = 2;
         rotacionCurvaMov1 = 0.0050f;
-        empezarSegundaCurvaMov1 = 9;
+        empezarSegundaCurvaMov1 = 6;
         primerCurvaMov1 = true;
         segundaCurvaMov1 = true;
         inicialX = transform.position.x;
         inicialY = transform.position.y;
         asignarDiley = 0.8f;// cada este tiepoDisparara
         dileyDisparo = asignarDiley;
-        empezarCurvaMov2 =11;
+        empezarCurvaMov2 = 11;
         dileyCambioDireccion = 1;
         soloUnaVez = true;
-
+        maxDerecha = 9;
+        maxIzquierda = -9;
+        dileyDisparoPatron6 = 0.8f;
         //tipoEnemigo = 0;
     }
     private void Awake()
@@ -73,7 +79,7 @@ public class Enemigo : MonoBehaviour {
             }
             if (tipoEnemigo == 1)
             {
-                if(transform.position.y> (refCamara.transform.position.y + 20))
+                if (transform.position.y > (refCamara.transform.position.y + 20))
                 {
                     Destroy(this.gameObject);
                 }
@@ -290,6 +296,69 @@ public class Enemigo : MonoBehaviour {
                     movimientoX = 0.1f;
                     transform.position = new Vector2(transform.position.x + movimientoX, transform.position.y + movimientoY);
                 }
+            }
+            if (tipoEnemigo == 6)
+            {
+                if (dileyDisparoPatron6 > 0)
+                {
+                    dileyDisparoPatron6 = dileyDisparoPatron6 - Time.deltaTime;
+                }
+                if (dileyDisparoPatron6 <= 0)
+                {
+                    Instantiate(refBalaEnemigo, transform.position, transform.rotation);
+                    dileyDisparoPatron6 = 0.8f;
+                }
+                if (inicialX > 0 && soloUnaVez)
+                {
+                    movimientoX = -0.1f;
+                    soloUnaVez = false;
+                }
+                if (transform.position.x > maxDerecha)
+                {
+                    movimientoX = -0.1f;
+                }
+                if (transform.position.x < maxIzquierda)
+                {
+                    movimientoX = 0.1f;
+                }
+                if (inicialX < 0 && soloUnaVez)
+                {
+                    movimientoX = 0.1f;
+                    soloUnaVez = false;
+                }
+                transform.position = new Vector2(transform.position.x + movimientoX, transform.position.y + movimientoY);
+
+            }
+            if (tipoEnemigo == 7)
+            {
+                if (soloUnaVez)
+                {
+                    velocidadY = 0;
+                    velocidadX = 0.1f;
+                    soloUnaVez = false;
+                }
+                if (transform.position.x > 13)
+                {
+                    Debug.Log("Entre a izquierda");
+                    velocidadX = -0.1f;
+                    velocidadY = velocidadY + -0.1f;
+                }
+                if (transform.position.x < -13)
+                {
+                    Debug.Log("Entre a Derecha");
+                    velocidadX = 0.1f;
+                    velocidadY = velocidadY + -0.1f;
+                }
+                randDisparo = Random.Range(0, 1000);
+                if(randDisparo == 2)
+                {
+                    Instantiate(refBalaEnemigo, transform.position, transform.rotation);
+                }
+                movimientoX = velocidadX;
+                movimientoY = velocidadY;
+                transform.position = new Vector2(transform.position.x + movimientoX, transform.position.y+movimientoY);
+                velocidadY = 0;
+                velocidadY = 0;
             }
         }
     }

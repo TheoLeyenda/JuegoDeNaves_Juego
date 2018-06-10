@@ -8,7 +8,7 @@ public class MovimientoDelNivel : MonoBehaviour {
     private Vector3 direccion;
     public float velScrolleo;
 	void Start () {
-        if (velScrolleo == 0)
+        if (velScrolleo == 0 )
         {
             velScrolleo = -0.1f;
         }
@@ -16,7 +16,15 @@ public class MovimientoDelNivel : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        direccion = new Vector3(transform.position.x, transform.position.y + velScrolleo, transform.position.z);
-        transform.position = direccion;
+            direccion = new Vector3(transform.position.x, transform.position.y + velScrolleo, transform.position.z);
+            transform.position = direccion;
 	}
+    public void SetVelScrolleo(float _velScrolleo)
+    {
+        velScrolleo = _velScrolleo;
+    }
+    public float GetVelScrolleo()
+    {
+        return velScrolleo;
+    }
 }

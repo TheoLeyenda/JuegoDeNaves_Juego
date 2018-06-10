@@ -31,7 +31,7 @@ public class BombaJugador : MonoBehaviour {
             gameObject.SetActive(false);
         }
 	}
-    private void OnTriggerEnter(Collider collision)
+    private void OnTriggerStay(Collider collision)
     {
         //Debug.Log("ENTRE A TRIGGERED");
         if (collision.transform.gameObject.tag == "Enemigo")

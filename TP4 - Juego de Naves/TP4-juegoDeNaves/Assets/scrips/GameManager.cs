@@ -12,9 +12,11 @@ public class GameManager : MonoBehaviour {
     //public static int tipoBala;
     void Start()
     {
-        puntos = 0;
+        //puntos = 0;
         tipoDisparo = 1;
         //tipoBala = 1;
+        DontDestroyOnLoad(this);
+        textoPuntaje.text = "" + puntos;
     }
     void Update()
     {
@@ -27,7 +29,8 @@ public class GameManager : MonoBehaviour {
 
     private void Awake()
     {
-        puntos = 0;
+        //DESCOMENTAR EN CASO DE NO FUNCIONAR
+        textoPuntaje.text = "" + puntos;
         instance = this;
     }
     public void SetPuntaje(int _puntaje)

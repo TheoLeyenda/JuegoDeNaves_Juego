@@ -235,7 +235,8 @@ MonoBehaviour:
   velocidadRotacion: 5
   refBalaEnemigo: {fileID: 1779624093847184, guid: 122f555dbcd48b04f8838ce8f705297e,
     type: 2}
-  refCamara: {fileID: 20762186527833218, guid: 04ae7aaffd51a3f4db78f4ea1d1b739e, type: 2}
+  refCamara: {fileID: 20146581269593862, guid: 04ae7aaffd51a3f4db78f4ea1d1b739e, type: 2}
+  quietos: 0
 --- !u!114 &114764979203523742
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -252,7 +253,8 @@ MonoBehaviour:
   velocidadRotacion: 5
   refBalaEnemigo: {fileID: 1779624093847184, guid: 122f555dbcd48b04f8838ce8f705297e,
     type: 2}
-  refCamara: {fileID: 20762186527833218, guid: 04ae7aaffd51a3f4db78f4ea1d1b739e, type: 2}
+  refCamara: {fileID: 20146581269593862, guid: 04ae7aaffd51a3f4db78f4ea1d1b739e, type: 2}
+  quietos: 0
 --- !u!114 &114856338763001476
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -269,7 +271,8 @@ MonoBehaviour:
   velocidadRotacion: 5
   refBalaEnemigo: {fileID: 1779624093847184, guid: 122f555dbcd48b04f8838ce8f705297e,
     type: 2}
-  refCamara: {fileID: 20762186527833218, guid: 04ae7aaffd51a3f4db78f4ea1d1b739e, type: 2}
+  refCamara: {fileID: 20146581269593862, guid: 04ae7aaffd51a3f4db78f4ea1d1b739e, type: 2}
+  quietos: 0
 --- !u!212 &212026726143772644
 SpriteRenderer:
   m_ObjectHideFlags: 1

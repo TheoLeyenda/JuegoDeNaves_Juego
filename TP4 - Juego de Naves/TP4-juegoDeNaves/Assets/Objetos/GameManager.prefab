@@ -51,6 +51,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f99056fac6fc51d41ae629d43f927045, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  puntos: 1800
+  puntos: 0
+  tipoEnemigo: 0
   textoPuntaje: {fileID: 114211136508454218, guid: 6bdce39b1504e7b4e966f4eb24abe6e0,
     type: 2}

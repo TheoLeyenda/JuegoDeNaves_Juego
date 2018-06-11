@@ -36,9 +36,12 @@ public class BarraVida : MonoBehaviour {
         }
         if (other.gameObject.tag == "ItemVida")
         {
-            sanacion = 2f;
-            Vida = Vida +sanacion;
-            BarraDeVida.size = Vida/100 ;
+            if (Vida < 100)
+            {
+                sanacion = 2f;
+                Vida = Vida + sanacion;
+                BarraDeVida.size = Vida / 100;
+            }
             Destroy(other.gameObject);
         }
         if (other.gameObject.tag == "ItemPoder")

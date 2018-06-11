@@ -84,28 +84,19 @@ public class BalaJugador : MonoBehaviour {
         if (collision.transform.gameObject.tag == "Enemigo")
         {
             //punticos.setPuntos(punticos.getPuntos() + 100);
-            
+
             Destroy(collision.transform.gameObject);
-            
+
             randomItem = Random.Range(1, maxRandomItem);
             if ((int)randomItem == 1)
             {
                 Instantiate(refItemVida, collision.transform.position, Quaternion.identity);
             }
-            if((int)randomItem == 3)
+            if ((int)randomItem == 3)
             {
                 Instantiate(refItemPoder, collision.transform.position, Quaternion.identity);
             }
             GameManager.Get().puntos = GameManager.Get().puntos + 100;
-            Destroy(this.gameObject);
-        }
-        if (collision.transform.gameObject.tag == "EnemigoResistente")
-        {
-            Jefe.SetVida(Jefe.GetVida() - 10);
-            if (Jefe.GetVida() <= 0)
-            {
-                Destroy(collision.gameObject);
-            }
             Destroy(this.gameObject);
         }
     }

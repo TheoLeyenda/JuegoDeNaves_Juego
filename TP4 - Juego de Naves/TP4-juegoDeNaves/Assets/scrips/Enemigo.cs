@@ -45,7 +45,9 @@ public class Enemigo : MonoBehaviour {
     private static Enemigo instance;
     private float randDisparo;
     public bool rapidoPatron5;
+    public bool rapidoPatron4;
     public bool rapidoPatron2;
+    public bool disparoRapidoPatron4;
     bool soloUnaVez;
     void Start() {
         vida = 100;
@@ -301,8 +303,23 @@ public class Enemigo : MonoBehaviour {
             }
             if (tipoEnemigo == 4)
             {
-                movimientoX = 0;
-                movimientoY = -0.015f;
+                
+                if (!rapidoPatron4)
+                {
+                    movimientoX = 0;
+                    movimientoY = -0.015f;
+                }
+                if (disparoRapidoPatron4 && soloUnaVez)
+                {
+                    asignarDiley = 0.1f;
+                    dileyDisparo = asignarDiley;
+                    soloUnaVez = false;
+                }
+                else if (rapidoPatron4)
+                {
+                    movimientoX = 0;
+                    movimientoY = -0.2f;
+                }
                 transform.position = new Vector2(transform.position.x + movimientoX, transform.position.y + movimientoY);
                 if (dileyDisparo > 0)
                 {
@@ -310,8 +327,14 @@ public class Enemigo : MonoBehaviour {
                 }
                 if ((movimientoX == 0 || velocidadX == 0) && dileyDisparo <= 0)
                 {
+                    Debug.Log("Ddisparo");
                     Instantiate(refBalaEnemigo, transform.position, transform.rotation);
                     dileyDisparo = asignarDiley;
+                    if (disparoRapidoPatron4)
+                    {
+                        asignarDiley = 0.1f;
+                        dileyDisparo = asignarDiley;
+                    }
                 }
             }
             if (tipoEnemigo == 5)
@@ -541,6 +564,56 @@ public class Enemigo : MonoBehaviour {
                 }
                 transform.position = new Vector2(transform.position.x + movimientoX, transform.position.y + movimientoY);
             }
+            if (tipoEnemigo == 14)
+            {
+                movimientoX = 0;
+                movimientoY = -0.2f;
+                transform.position = new Vector2(transform.position.x + movimientoX, transform.position.y + movimientoY);
+            }
+            //SE MUEVE DE IZQUIERDA A DERECHA Y DISPARA PARA ABAJO
+            if (tipoEnemigo == 15)
+            {
+                if (dileyDisparoPatron6 > 0)
+                {
+                    dileyDisparoPatron6 = dileyDisparoPatron6 - Time.deltaTime;
+                }
+                if (dileyDisparoPatron6 <= 0)
+                {
+                    Instantiate(refBalaEnemigoTip3, new Vector3(transform.position.x - 0.5f, transform.position.y - 0.8f, transform.position.z), transform.rotation);
+
+                    Instantiate(refBalaEnemigo, new Vector3(transform.position.x - 0.2f, transform.position.y - 0.8f, transform.position.z), transform.rotation);
+                    
+                    Instantiate(refBalaEnemigo, new Vector3(transform.position.x + 0.2f, transform.position.y - 0.8f, transform.position.z), transform.rotation);
+
+                    Instantiate(refBalaEnemigoTip2, new Vector3(transform.position.x + 0.5f, transform.position.y - 0.8f, transform.position.z), transform.rotation);
+                    dileyDisparoPatron6 = 0.8f;
+                }
+                if (inicialX > 0 && soloUnaVez)
+                {
+                    movimientoX = -0.1f;
+                    soloUnaVez = false;
+                }
+                if (transform.position.x > maxDerecha)
+                {
+                    movimientoX = -0.1f;
+                }
+                if (transform.position.x < maxIzquierda)
+                {
+                    movimientoX = 0.1f;
+                }
+                if (inicialX < 0 && soloUnaVez)
+                {
+                    movimientoX = 0.1f;
+                    soloUnaVez = false;
+                }
+                transform.position = new Vector2(transform.position.x + movimientoX, transform.position.y + movimientoY);
+            }
+            if (tipoEnemigo == 14)
+            {
+                movimientoX = 0;
+                movimientoY = -0.2f;
+                transform.position = new Vector2(transform.position.x + movimientoX, transform.position.y + movimientoY);
+            }
         }
     }
     public void SetQuieto(bool _quietos)
@@ -569,6 +642,7 @@ public class Enemigo : MonoBehaviour {
             {
                 Destroy(this);
             }
+            Destroy(other.gameObject);
 
         }
     }

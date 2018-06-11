@@ -20,6 +20,7 @@ public class DisparoJugador : MonoBehaviour {
     public float rango;
     private int cantBombas;
 	void Start () {
+        DontDestroyOnLoad(this);
         cantBombas = 3;
 	}
 	
@@ -77,4 +78,5 @@ public class DisparoJugador : MonoBehaviour {
         }
         
 	}
+    
 }

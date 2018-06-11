@@ -123,7 +123,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15f5b89e90342d840aa2c25bb2d05429, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BarraDeVida: {fileID: 0}
+  BarraDeVida: {fileID: 114871600856271420, guid: 983380b86b250ad4aa7f777b77bf0d01,
+    type: 2}
   Vida: 100
 --- !u!212 &212789321443295420
 SpriteRenderer:

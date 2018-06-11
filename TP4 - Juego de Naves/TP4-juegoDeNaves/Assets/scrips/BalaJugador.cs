@@ -17,6 +17,7 @@ public class BalaJugador : MonoBehaviour {
     public GameObject refItemPoder;
     private float velocidadY;
     private float velocidadX;
+    public Enemigo Jefe;
 	void Start () {
         _tipoBala = tipoBala;
         velocidadY = 0;
@@ -96,6 +97,15 @@ public class BalaJugador : MonoBehaviour {
                 Instantiate(refItemPoder, collision.transform.position, Quaternion.identity);
             }
             GameManager.Get().puntos = GameManager.Get().puntos + 100;
+            Destroy(this.gameObject);
+        }
+        if (collision.transform.gameObject.tag == "EnemigoResistente")
+        {
+            Jefe.SetVida(Jefe.GetVida() - 10);
+            if (Jefe.GetVida() <= 0)
+            {
+                Destroy(collision.gameObject);
+            }
             Destroy(this.gameObject);
         }
     }

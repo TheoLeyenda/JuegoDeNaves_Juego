@@ -26,6 +26,7 @@ TagManager:
   - Muro
   - Bala
   - CamaraColicionadora
+  - EnemigoResistente
   layers:
   - Default
   - TransparentFX

@@ -238,6 +238,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\NoTeDestruyas.cs" />
     <Compile Include="Assets\scrips\ActivadorEnemigos1_Nivel1.cs" />
     <Compile Include="Assets\scrips\ActivadorEnemigos2_Nivel1.cs" />
     <Compile Include="Assets\scrips\ActivadorEnemigos3_Nivel1.cs" />
@@ -258,6 +259,7 @@
     <Compile Include="Assets\scrips\MovimientoDelNivel.cs" />
     <Compile Include="Assets\scrips\MovimientoJugador.cs" />
     <Compile Include="Assets\scrips\NewBehaviourScript.cs" />
+    <Compile Include="Assets\scrips\NoDestruir.cs" />
     <Compile Include="Assets\scrips\PasarNivel1.cs" />
     <Compile Include="Assets\scrips\PasarNivel2.cs" />
   </ItemGroup>

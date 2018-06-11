@@ -87,6 +87,7 @@ MonoBehaviour:
     type: 2}
   refItemPoder: {fileID: 1754258421609038, guid: 78a7345227762ec49a889d1f1decb047,
     type: 2}
+  Jefe: {fileID: 114209036414751696, guid: ea15606b082b98848bcedae47d152241, type: 2}
 --- !u!212 &212889388248315010
 SpriteRenderer:
   m_ObjectHideFlags: 1

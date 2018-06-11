@@ -86,6 +86,16 @@ MonoBehaviour:
   velocidadRotacion: 5
   refBalaEnemigo: {fileID: 1779624093847184, guid: 122f555dbcd48b04f8838ce8f705297e,
     type: 2}
+  refBalaEnemigoTip1: {fileID: 1863445424348602, guid: 7e527e7c3330ffa45b764ae8d0fdbba4,
+    type: 2}
+  refBalaEnemigoTip2: {fileID: 1369416142927114, guid: 4e522ff49720326488a52cafca451c70,
+    type: 2}
+  refBalaEnemigoTip3: {fileID: 1768329586039140, guid: 415b2144303b12a40b17bdd70f08398c,
+    type: 2}
+  refBalaEnemigoTip4: {fileID: 1664782676575012, guid: 462b79c26b244f74086e061d5756ccf7,
+    type: 2}
+  refBalaEnemigoTip5: {fileID: 1447876763176700, guid: 9527d298e2a944547b42e80f62387e14,
+    type: 2}
   refCamara: {fileID: 20146581269593862, guid: 04ae7aaffd51a3f4db78f4ea1d1b739e, type: 2}
   quietos: 0
 --- !u!212 &212373816924892502

@@ -27,6 +27,7 @@ public class Enemigo : MonoBehaviour {
     public GameObject refBalaEnemigoTip3;
     public GameObject refBalaEnemigoTip4;
     public GameObject refBalaEnemigoTip5;
+    public GameObject refBalaEnemigoTip6;
     public Camera refCamara;
     private bool segundaCurvaMov1;
     private float varAux1 = 0.01f;//NO TOCAR
@@ -43,6 +44,8 @@ public class Enemigo : MonoBehaviour {
     private float dileyDisparoPatron6;
     private static Enemigo instance;
     private float randDisparo;
+    public bool rapidoPatron5;
+    public bool rapidoPatron2;
     bool soloUnaVez;
     void Start() {
         vida = 100;
@@ -197,11 +200,22 @@ public class Enemigo : MonoBehaviour {
                 {
                     if (inicialX < 0 && soloUnaVez)
                     {
-                        velocidadY = -0.025f;
-                        velocidadX = 0.1f;
-                        soloUnaVez = false;
-                        doblarIzquierda = false;
-                        doblarDerecha = true;
+                        if (!rapidoPatron2)
+                        {
+                            velocidadY = -0.025f;
+                            velocidadX = 0.1f;
+                            soloUnaVez = false;
+                            doblarIzquierda = false;
+                            doblarDerecha = true;
+                        }
+                        else if (rapidoPatron2)
+                        {
+                            velocidadY = -0.025f;
+                            velocidadX = 0.2f;
+                            soloUnaVez = false;
+                            doblarIzquierda = false;
+                            doblarDerecha = true;
+                        }
 
                     }
                     if (transform.position.x >= empezarCurvaMov2 && doblarDerecha)
@@ -229,11 +243,22 @@ public class Enemigo : MonoBehaviour {
                 {
                     if (inicialX > 0 && soloUnaVez)
                     {
-                        velocidadY = -0.025f;
-                        velocidadX = -0.1f;
-                        soloUnaVez = false;
-                        doblarIzquierda = true;
-                        doblarDerecha = false;
+                        if (!rapidoPatron2)
+                        {
+                            velocidadY = -0.025f;
+                            velocidadX = -0.1f;
+                            soloUnaVez = false;
+                            doblarIzquierda = true;
+                            doblarDerecha = false;
+                        }
+                        else if (rapidoPatron2)
+                        {
+                            velocidadY = -0.025f;
+                            velocidadX = -0.2f;
+                            soloUnaVez = false;
+                            doblarIzquierda = true;
+                            doblarDerecha = false;
+                        }
 
                     }
                     if (transform.position.x >= empezarCurvaMov2 && doblarDerecha)
@@ -293,13 +318,29 @@ public class Enemigo : MonoBehaviour {
             {
                 if (inicialX > 0)
                 {
-                    movimientoX = -0.1f;
-                    transform.position = new Vector2(transform.position.x + movimientoX, transform.position.y + movimientoY);
+                    if (!rapidoPatron5)
+                    {
+                        movimientoX = -0.1f;
+                        transform.position = new Vector2(transform.position.x + movimientoX, transform.position.y + movimientoY);
+                    }
+                    else if (rapidoPatron5)
+                    {
+                        movimientoX = -0.3f;
+                        transform.position = new Vector2(transform.position.x + movimientoX, transform.position.y + movimientoY);
+                    }
                 }
                 if (inicialX < 0)
                 {
-                    movimientoX = 0.1f;
-                    transform.position = new Vector2(transform.position.x + movimientoX, transform.position.y + movimientoY);
+                    if (!rapidoPatron5)
+                    {
+                        movimientoX = 0.1f;
+                        transform.position = new Vector2(transform.position.x + movimientoX, transform.position.y + movimientoY);
+                    }
+                    else if (rapidoPatron5)
+                    {
+                        movimientoX = 0.3f;
+                        transform.position = new Vector2(transform.position.x + movimientoX, transform.position.y + movimientoY);
+                    }
                 }
             }
             if (tipoEnemigo == 6)
@@ -388,7 +429,7 @@ public class Enemigo : MonoBehaviour {
             if (tipoEnemigo == 9)
             {
                 movimientoX = 0;
-                movimientoY = 0.015f;
+                movimientoY = 0.2f;
                 transform.position = new Vector2(transform.position.x + movimientoX, transform.position.y + movimientoY);
                 if (dileyDisparo > 0)
                 {
@@ -396,7 +437,7 @@ public class Enemigo : MonoBehaviour {
                 }
                 if ((movimientoX == 0 || velocidadX == 0) && dileyDisparo <= 0)
                 {
-                    Instantiate(refBalaEnemigo, new Vector3(transform.position.x, transform.position.y, transform.position.z), transform.rotation);
+                    Instantiate(refBalaEnemigoTip6, new Vector3(transform.position.x, transform.position.y, transform.position.z), transform.rotation);
                     dileyDisparo = asignarDiley;
 
                 }
@@ -517,5 +558,18 @@ public class Enemigo : MonoBehaviour {
     public void SetVida(float _vida)
     {
         vida = _vida;
+    }
+    //VERIFICAR SI ESTO FUNCIONA USANDO DE PRUEBA A LOS ENEMIGOS CON VIDA
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "Bala" && this.gameObject.tag == "EnemigoResistente")
+        {
+            vida = vida - 10;
+            if (vida <= 0)
+            {
+                Destroy(this);
+            }
+
+        }
     }
 }

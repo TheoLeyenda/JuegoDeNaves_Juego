@@ -239,9 +239,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\NoTeDestruyas.cs" />
+    <Compile Include="Assets\scrips\ActivadorEnemigo4_Nivel2.cs" />
+    <Compile Include="Assets\scrips\ActivadorEnemigo5_Nivel2.cs" />
     <Compile Include="Assets\scrips\ActivadorEnemigos1_Nivel1.cs" />
+    <Compile Include="Assets\scrips\ActivadorEnemigos1_Nivel2.cs" />
     <Compile Include="Assets\scrips\ActivadorEnemigos2_Nivel1.cs" />
+    <Compile Include="Assets\scrips\ActivadorEnemigos25_Nivel2.cs" />
     <Compile Include="Assets\scrips\ActivadorEnemigos3_Nivel1.cs" />
+    <Compile Include="Assets\scrips\ActivadorEnemigos3_Nivel2.cs" />
     <Compile Include="Assets\scrips\ActivadorEnemigos4_Nivel1.cs" />
     <Compile Include="Assets\scrips\ActivadorEnemigos5_Nivel1.cs" />
     <Compile Include="Assets\scrips\ActivadorEnemigos6_Nivel1.cs" />

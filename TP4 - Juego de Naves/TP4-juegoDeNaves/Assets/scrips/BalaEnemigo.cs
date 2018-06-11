@@ -70,5 +70,11 @@ public class BalaEnemigo : MonoBehaviour {
             direccion = new Vector3(transform.position.x + velocidadX, transform.position.y + velocidadY , transform.position.z);
             transform.position = direccion;
         }
+        if (tipoBala == 6)
+        {
+            velocidadY = 0.5f;
+            direccion = new Vector3(transform.position.x, transform.position.y + velocidadY, transform.position.z);
+            transform.position = direccion;
+        }
     }
 }

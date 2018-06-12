@@ -28,6 +28,10 @@ public class Enemigo : MonoBehaviour {
     public GameObject refBalaEnemigoTip4;
     public GameObject refBalaEnemigoTip5;
     public GameObject refBalaEnemigoTip6;
+    public GameObject refBalaEnemigoTip7;
+    public GameObject refBalaEnemigoTip8;
+    public GameObject refBalaEnemigoTip9;
+    public GameObject refItemVidaGigante;
     public Camera refCamara;
     private bool segundaCurvaMov1;
     private float varAux1 = 0.01f;//NO TOCAR
@@ -579,13 +583,13 @@ public class Enemigo : MonoBehaviour {
                 }
                 if (dileyDisparoPatron6 <= 0)
                 {
-                    Instantiate(refBalaEnemigoTip3, new Vector3(transform.position.x - 0.5f, transform.position.y - 0.8f, transform.position.z), transform.rotation);
+                    Instantiate(refBalaEnemigoTip3, new Vector3(transform.position.x - 0.8f, transform.position.y - 0.8f, transform.position.z), transform.rotation);
 
-                    Instantiate(refBalaEnemigo, new Vector3(transform.position.x - 0.2f, transform.position.y - 0.8f, transform.position.z), transform.rotation);
+                    Instantiate(refBalaEnemigo, new Vector3(transform.position.x - 0.5f, transform.position.y - 0.8f, transform.position.z), transform.rotation);
                     
-                    Instantiate(refBalaEnemigo, new Vector3(transform.position.x + 0.2f, transform.position.y - 0.8f, transform.position.z), transform.rotation);
+                    Instantiate(refBalaEnemigo, new Vector3(transform.position.x + 0.5f, transform.position.y - 0.8f, transform.position.z), transform.rotation);
 
-                    Instantiate(refBalaEnemigoTip2, new Vector3(transform.position.x + 0.5f, transform.position.y - 0.8f, transform.position.z), transform.rotation);
+                    Instantiate(refBalaEnemigoTip2, new Vector3(transform.position.x + 0.8f, transform.position.y - 0.8f, transform.position.z), transform.rotation);
                     dileyDisparoPatron6 = 0.8f;
                 }
                 if (inicialX > 0 && soloUnaVez)
@@ -608,11 +612,104 @@ public class Enemigo : MonoBehaviour {
                 }
                 transform.position = new Vector2(transform.position.x + movimientoX, transform.position.y + movimientoY);
             }
-            if (tipoEnemigo == 14)
+            if (tipoEnemigo == 16)
             {
-                movimientoX = 0;
-                movimientoY = -0.2f;
+                if (dileyDisparoPatron6 > 0)
+                {
+                    dileyDisparoPatron6 = dileyDisparoPatron6 - Time.deltaTime;
+                }
+                if (dileyDisparoPatron6 <= 0)
+                {
+                    Instantiate(refBalaEnemigoTip2, new Vector3(transform.position.x - 2.24f, transform.position.y - 0.8f, transform.position.z), transform.rotation);
+
+                    Instantiate(refBalaEnemigoTip2, new Vector3(transform.position.x - 1.60f, transform.position.y - 0.8f, transform.position.z), transform.rotation);
+
+                    Instantiate(refBalaEnemigoTip2, new Vector3(transform.position.x - 0.96f, transform.position.y - 0.8f, transform.position.z), transform.rotation);
+
+                    Instantiate(refBalaEnemigo, new Vector3(transform.position.x - 3.64f, transform.position.y - 0.8f, transform.position.z), transform.rotation);
+                    Instantiate(refBalaEnemigo, new Vector3(transform.position.x - 3, transform.position.y - 0.8f, transform.position.z), transform.rotation);
+                    Instantiate(refBalaEnemigo, new Vector3(transform.position.x - 2.36f, transform.position.y - 0.8f, transform.position.z), transform.rotation);
+
+                    Instantiate(refBalaEnemigo, new Vector3(transform.position.x - 1.60f, transform.position.y - 0.8f, transform.position.z), transform.rotation);
+
+                    Instantiate(refBalaEnemigo, new Vector3(transform.position.x - 0.96f, transform.position.y - 0.8f, transform.position.z), transform.rotation);
+
+                    Instantiate(refBalaEnemigo, new Vector3(transform.position.x - 0.32f, transform.position.y - 0.8f, transform.position.z), transform.rotation);
+
+                    Instantiate(refBalaEnemigo, new Vector3(transform.position.x + 0.32f, transform.position.y - 0.8f, transform.position.z), transform.rotation);
+
+                    Instantiate(refBalaEnemigo, new Vector3(transform.position.x + 0.96f, transform.position.y - 0.8f, transform.position.z), transform.rotation);
+
+                    Instantiate(refBalaEnemigo, new Vector3(transform.position.x + 1.60f, transform.position.y - 0.8f, transform.position.z), transform.rotation);
+
+                    Instantiate(refBalaEnemigo, new Vector3(transform.position.x + 3, transform.position.y - 0.8f, transform.position.z), transform.rotation);
+                    Instantiate(refBalaEnemigo, new Vector3(transform.position.x + 3.64f, transform.position.y - 0.8f, transform.position.z), transform.rotation);
+                    Instantiate(refBalaEnemigo, new Vector3(transform.position.x + 2.36f, transform.position.y - 0.8f, transform.position.z), transform.rotation);
+
+                    Instantiate(refBalaEnemigoTip3, new Vector3(transform.position.x + 0.96f, transform.position.y - 0.8f, transform.position.z), transform.rotation);
+
+                    Instantiate(refBalaEnemigoTip3, new Vector3(transform.position.x + 1.60f, transform.position.y - 0.8f, transform.position.z), transform.rotation);
+
+                    Instantiate(refBalaEnemigoTip3, new Vector3(transform.position.x + 2.24f, transform.position.y - 0.8f, transform.position.z), transform.rotation);
+
+                    dileyDisparoPatron6 = 0.8f;
+                }
+                if (inicialX > 0 && soloUnaVez)
+                {
+                    movimientoX = -0.1f;
+                    soloUnaVez = false;
+                }
+                if (transform.position.x > maxDerecha)
+                {
+                    movimientoX = -0.1f;
+                }
+                if (transform.position.x < maxIzquierda)
+                {
+                    movimientoX = 0.1f;
+                }
+                if (inicialX < 0 && soloUnaVez)
+                {
+                    movimientoX = 0.1f;
+                    soloUnaVez = false;
+                }
                 transform.position = new Vector2(transform.position.x + movimientoX, transform.position.y + movimientoY);
+            }
+            if (tipoEnemigo == 17)
+            {
+                /*if (refBalaEnemigoTip7 != null && refBalaEnemigoTip8 != null /*&& refBalaEnemigoTip9 != null)
+                {*/
+                    if (dileyDisparoPatron6 > 0)
+                    {
+                        dileyDisparoPatron6 = dileyDisparoPatron6 - Time.deltaTime;
+                    }
+                    if (dileyDisparoPatron6 <= 0)
+                    {
+                        //ACA INSTANCIAR LOS DISPAROS DEL ENEMIGO FINAL.
+                        Debug.Log("Instanciado Balas ENemigo final");
+                        Instantiate(refBalaEnemigoTip8, transform.position, transform.rotation);
+                        Instantiate(refBalaEnemigoTip7, transform.position, transform.rotation);
+                        dileyDisparoPatron6 = 0.8f;
+                    }
+                    if (inicialX > 0 && soloUnaVez)
+                    {
+                        movimientoX = -0.1f;
+                        soloUnaVez = false;
+                    }
+                    if (transform.position.x > maxDerecha)
+                    {
+                        movimientoX = -0.1f;
+                    }
+                    if (transform.position.x < maxIzquierda)
+                    {
+                        movimientoX = 0.1f;
+                    }
+                    if (inicialX < 0 && soloUnaVez)
+                    {
+                        movimientoX = 0.1f;
+                        soloUnaVez = false;
+                    }
+                    transform.position = new Vector2(transform.position.x + movimientoX, transform.position.y + movimientoY);
+                //}
             }
         }
     }
@@ -637,10 +734,14 @@ public class Enemigo : MonoBehaviour {
     {
         if (other.gameObject.tag == "Bala" && this.gameObject.tag == "EnemigoResistente")
         {
-            vida = vida - 10;
+            vida = vida - 1;
             if (vida <= 0)
             {
-                Destroy(this);
+                if (refItemVidaGigante != null)
+                {
+                    Instantiate(refItemVidaGigante, transform.position, Quaternion.identity);
+                }
+                Destroy(this.gameObject);
             }
             Destroy(other.gameObject);
 

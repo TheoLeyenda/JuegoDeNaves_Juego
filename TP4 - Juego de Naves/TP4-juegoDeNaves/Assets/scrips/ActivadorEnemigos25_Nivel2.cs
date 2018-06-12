@@ -27,12 +27,15 @@ public class ActivadorEnemigos25_Nivel2 : MonoBehaviour
     {
         if (activacion >= 1)
         {
-            Enemigo1.SetQuieto(false);
-            Enemigo2.SetQuieto(false);
-            Enemigo3.SetQuieto(false);
-            Enemigo4.SetQuieto(false);
-            Enemigo5.SetQuieto(false);
-            Enemigo6.SetQuieto(false);
+            if (Enemigo1 != null && Enemigo2 != null && Enemigo3 != null && Enemigo4 != null && Enemigo5 != null && Enemigo6 != null)
+            {
+                Enemigo1.SetQuieto(false);
+                Enemigo2.SetQuieto(false);
+                Enemigo3.SetQuieto(false);
+                Enemigo4.SetQuieto(false);
+                Enemigo5.SetQuieto(false);
+                Enemigo6.SetQuieto(false);
+            }
         }
         if (other.gameObject.tag == "Jugador")
         {

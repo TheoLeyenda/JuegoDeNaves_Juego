@@ -27,6 +27,7 @@ TagManager:
   - Bala
   - CamaraColicionadora
   - EnemigoResistente
+  - ItemVidaGigante
   layers:
   - Default
   - TransparentFX

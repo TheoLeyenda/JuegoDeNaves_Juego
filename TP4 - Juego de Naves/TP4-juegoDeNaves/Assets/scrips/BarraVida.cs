@@ -52,8 +52,26 @@ public class BarraVida : MonoBehaviour {
             }
             Destroy(other.gameObject);
         }
+        if (other.gameObject.tag == "ItemVidaGigante")
+        {
+            if (Vida < 100)
+            {
+                sanacion = 25f;
+                Vida = Vida + sanacion;
+                BarraDeVida.size = Vida / 100;
+            }
+            Destroy(other.gameObject);
+        }
         
     }
-   
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.gameObject.tag == "EnemigoResistente")
+        {
+            danio = 8;
+            Vida -= danio;
+            BarraDeVida.size = Vida / 100f;
+        }
+    }
 
 }

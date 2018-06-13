@@ -230,6 +230,8 @@ public class Enemigo : MonoBehaviour {
                         dileyCambioDireccion = 0;
                         doblarDerecha = false;
                         doblarIzquierda = true;
+                        //transform.Rotate(new Vector3(0, 0, 0));
+                        //transform.Rotate(new Vector3(0, 0, 45));
                     }
                     if (transform.position.x <= -empezarCurvaMov2 && doblarIzquierda)
                     {
@@ -237,6 +239,8 @@ public class Enemigo : MonoBehaviour {
                         dileyCambioDireccion = 0;
                         doblarIzquierda = false;
                         doblarDerecha = true;
+                        //transform.Rotate(new Vector3(0, 0, 0));
+                        //transform.Rotate(new Vector3(0, 0, -45));
                     }
                     if (dileyCambioDireccion <= 1f)
                     {
@@ -273,6 +277,8 @@ public class Enemigo : MonoBehaviour {
                         dileyCambioDireccion = 0;
                         doblarDerecha = false;
                         doblarIzquierda = true;
+                        //transform.Rotate(new Vector3(0, 0, 0));
+                        //transform.Rotate(new Vector3(0, 0, 45));
                     }
                     if (transform.position.x <= -empezarCurvaMov2 && doblarIzquierda)
                     {
@@ -280,6 +286,8 @@ public class Enemigo : MonoBehaviour {
                         dileyCambioDireccion = 0;
                         doblarIzquierda = false;
                         doblarDerecha = true;
+                        //transform.Rotate(new Vector3(0, 0, 0));
+                        //transform.Rotate(new Vector3(0, 0, -45));
                     }
                     if (dileyCambioDireccion <= 1f)
                     {

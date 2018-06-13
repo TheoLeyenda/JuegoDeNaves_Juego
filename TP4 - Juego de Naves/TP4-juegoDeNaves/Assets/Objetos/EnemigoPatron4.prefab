@@ -23,6 +23,7 @@ GameObject:
   - component: {fileID: 54386836336806254}
   - component: {fileID: 65202091136710646}
   - component: {fileID: 114504558378210480}
+  - component: {fileID: 82619119595776476}
   m_Layer: 0
   m_Name: EnemigoPatron4
   m_TagString: Enemigo
@@ -70,6 +71,86 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.16, y: 0.16, z: 0.2}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!82 &82619119595776476
+AudioSource:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1454338157254826}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
 --- !u!114 &114504558378210480
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -96,8 +177,18 @@ MonoBehaviour:
     type: 2}
   refBalaEnemigoTip5: {fileID: 1447876763176700, guid: 9527d298e2a944547b42e80f62387e14,
     type: 2}
+  refBalaEnemigoTip6: {fileID: 0}
+  refBalaEnemigoTip7: {fileID: 0}
+  refBalaEnemigoTip8: {fileID: 0}
+  refBalaEnemigoTip9: {fileID: 0}
+  refItemVidaGigante: {fileID: 0}
   refCamara: {fileID: 20146581269593862, guid: 04ae7aaffd51a3f4db78f4ea1d1b739e, type: 2}
   quietos: 0
+  rapidoPatron5: 0
+  rapidoPatron4: 0
+  rapidoPatron2: 0
+  disparoRapidoPatron4: 0
+  audioDisparo: {fileID: 0}
 --- !u!212 &212373816924892502
 SpriteRenderer:
   m_ObjectHideFlags: 1

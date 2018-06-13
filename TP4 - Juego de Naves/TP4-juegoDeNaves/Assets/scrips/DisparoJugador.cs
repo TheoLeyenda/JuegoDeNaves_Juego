@@ -16,10 +16,13 @@ public class DisparoJugador : MonoBehaviour {
     public GameObject SpriteBomba1;
     public GameObject SpriteBomba2;
     public GameObject SpriteBomba3;
+    public AudioClip audioDisparo;
     private RaycastHit hit;
     public float rango;
     private int cantBombas;
+    AudioSource fuenteAudio;
 	void Start () {
+        fuenteAudio = GetComponent<AudioSource>();
         DontDestroyOnLoad(this);
         cantBombas = 3;
 	}
@@ -28,6 +31,8 @@ public class DisparoJugador : MonoBehaviour {
 	void Update () {
         if (Input.GetKeyDown(KeyCode.Z))
         {
+            fuenteAudio.clip = audioDisparo;
+            fuenteAudio.Play();
             if (GameManager.tipoDisparo == 1)
             {
                 //GameManager.tipoBala = 1;

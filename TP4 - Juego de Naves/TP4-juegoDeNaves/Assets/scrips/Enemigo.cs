@@ -53,6 +53,8 @@ public class Enemigo : MonoBehaviour {
     public bool rapidoPatron2;
     public bool disparoRapidoPatron4;
     bool soloUnaVez;
+    public AudioClip audioDisparo;
+    AudioSource fuenteAudio;
     void Start() {
         vida = 100;
         movimientoX = 0;
@@ -74,6 +76,7 @@ public class Enemigo : MonoBehaviour {
         maxDerecha = 9;
         maxIzquierda = -9;
         dileyDisparoPatron6 = 0.8f;
+        fuenteAudio = GetComponent<AudioSource>();
         //tipoEnemigo = 0;
     }
     private void Awake()
@@ -132,7 +135,7 @@ public class Enemigo : MonoBehaviour {
                         if (movimientoY <= 0.1 && segundaCurvaMov1)
                         {
                             movimientoY = movimientoY + rotacionCurvaMov1;
-                            transform.RotateAround(transform.position, transform.right * -1, velocidadRotacion * Time.deltaTime);
+                            //transform.RotateAround(transform.position, transform.right * -1, velocidadRotacion * Time.deltaTime);
                             //transform.RotateAroundLocal(transform.up * -1, velocidadRotacion * Time.deltaTime);
                             //transform.Rotate(new Vector3(0f, 30f, 0f) * Time.deltaTime);
                         }
@@ -147,6 +150,11 @@ public class Enemigo : MonoBehaviour {
                     {
                         Instantiate(refBalaEnemigo, transform.position, transform.rotation);
                         dileyDisparo = asignarDiley;
+                        if (fuenteAudio != null)
+                        {
+                            fuenteAudio.clip = audioDisparo;
+                            fuenteAudio.Play();
+                        }
                     }
                 }
                 if (inicialX > 0)
@@ -179,7 +187,7 @@ public class Enemigo : MonoBehaviour {
                         if (movimientoY <= 0.1 && segundaCurvaMov1)
                         {
                             movimientoY = movimientoY + rotacionCurvaMov1;
-                            transform.RotateAround(transform.position, transform.right * -1, velocidadRotacion * Time.deltaTime);
+                            //transform.RotateAround(transform.position, transform.right * -1, velocidadRotacion * Time.deltaTime);
                             //transform.RotateAroundLocal(transform.up * -1, velocidadRotacion * Time.deltaTime);
                             //transform.Rotate(new Vector3(0f, 30f, 0f) * Time.deltaTime);
                         }
@@ -194,6 +202,11 @@ public class Enemigo : MonoBehaviour {
                     {
                         Instantiate(refBalaEnemigo, transform.position, transform.rotation);
                         dileyDisparo = asignarDiley;
+                        if (fuenteAudio != null)
+                        {
+                            fuenteAudio.clip = audioDisparo;
+                            fuenteAudio.Play();
+                        }
                     }
                 }
 
@@ -231,7 +244,7 @@ public class Enemigo : MonoBehaviour {
                         doblarDerecha = false;
                         doblarIzquierda = true;
                         //transform.Rotate(new Vector3(0, 0, 0));
-                        //transform.Rotate(new Vector3(0, 0, 45));
+                        transform.Rotate(new Vector3(0, 0, 45));
                     }
                     if (transform.position.x <= -empezarCurvaMov2 && doblarIzquierda)
                     {
@@ -240,7 +253,7 @@ public class Enemigo : MonoBehaviour {
                         doblarIzquierda = false;
                         doblarDerecha = true;
                         //transform.Rotate(new Vector3(0, 0, 0));
-                        //transform.Rotate(new Vector3(0, 0, -45));
+                        transform.Rotate(new Vector3(0, 0, -45));
                     }
                     if (dileyCambioDireccion <= 1f)
                     {
@@ -341,6 +354,11 @@ public class Enemigo : MonoBehaviour {
                 {
                     Debug.Log("Ddisparo");
                     Instantiate(refBalaEnemigo, transform.position, transform.rotation);
+                    if (fuenteAudio != null)
+                    {
+                        fuenteAudio.clip = audioDisparo;
+                        fuenteAudio.Play();
+                    }
                     dileyDisparo = asignarDiley;
                     if (disparoRapidoPatron4)
                     {
@@ -387,6 +405,11 @@ public class Enemigo : MonoBehaviour {
                 if (dileyDisparoPatron6 <= 0)
                 {
                     Instantiate(refBalaEnemigo, transform.position, transform.rotation);
+                    if (fuenteAudio != null)
+                    {
+                        fuenteAudio.clip = audioDisparo;
+                        fuenteAudio.Play();
+                    }
                     dileyDisparoPatron6 = 0.8f;
                 }
                 if (inicialX > 0 && soloUnaVez)
@@ -434,6 +457,11 @@ public class Enemigo : MonoBehaviour {
                 if(randDisparo == 2)
                 {
                     Instantiate(refBalaEnemigo, transform.position, transform.rotation);
+                    if (fuenteAudio != null)
+                    {
+                        fuenteAudio.clip = audioDisparo;
+                        fuenteAudio.Play();
+                    }
                 }
                 movimientoX = velocidadX;
                 movimientoY = velocidadY;
@@ -454,6 +482,11 @@ public class Enemigo : MonoBehaviour {
                 }
                 if ((movimientoX == 0 || velocidadX == 0) && dileyDisparo <= 0)
                 {
+                    if (fuenteAudio != null)
+                    {
+                        fuenteAudio.clip = audioDisparo;
+                        fuenteAudio.Play();
+                    }
                     Instantiate(refBalaEnemigo, new Vector3(transform.position.x-0.2f,transform.position.y,transform.position.z), transform.rotation);
                     dileyDisparo = asignarDiley;
                     Instantiate(refBalaEnemigo, new Vector3(transform.position.x+ 0.2f, transform.position.y, transform.position.z), transform.rotation);
@@ -472,6 +505,11 @@ public class Enemigo : MonoBehaviour {
                 }
                 if ((movimientoX == 0 || velocidadX == 0) && dileyDisparo <= 0)
                 {
+                    if (fuenteAudio != null)
+                    {
+                        fuenteAudio.clip = audioDisparo;
+                        fuenteAudio.Play();
+                    }
                     Instantiate(refBalaEnemigoTip6, new Vector3(transform.position.x, transform.position.y, transform.position.z), transform.rotation);
                     dileyDisparo = asignarDiley;
 
@@ -490,6 +528,11 @@ public class Enemigo : MonoBehaviour {
                 }
                 if ((movimientoX == 0 || velocidadX == 0) && dileyDisparo <= 0)
                 {
+                    if (fuenteAudio != null)
+                    {
+                        fuenteAudio.clip = audioDisparo;
+                        fuenteAudio.Play();
+                    }
                     Instantiate(refBalaEnemigo, new Vector3(transform.position.x - 0.2f, transform.position.y, transform.position.z), transform.rotation);
                     
                     Instantiate(refBalaEnemigo, new Vector3(transform.position.x + 0.2f, transform.position.y, transform.position.z), transform.rotation);
@@ -511,6 +554,11 @@ public class Enemigo : MonoBehaviour {
                 }
                 if ((movimientoX == 0 || velocidadX == 0) && dileyDisparo <= 0)
                 {
+                    if (fuenteAudio != null)
+                    {
+                        fuenteAudio.clip = audioDisparo;
+                        fuenteAudio.Play();
+                    }
                     Instantiate(refBalaEnemigo, new Vector3(transform.position.x - 0.2f, transform.position.y, transform.position.z), transform.rotation);
 
                     Instantiate(refBalaEnemigo, new Vector3(transform.position.x + 0.2f, transform.position.y, transform.position.z), transform.rotation);
@@ -532,6 +580,11 @@ public class Enemigo : MonoBehaviour {
                 }
                 if ((movimientoX == 0 || velocidadX == 0) && dileyDisparo <= 0)
                 {
+                    if (fuenteAudio != null)
+                    {
+                        fuenteAudio.clip = audioDisparo;
+                        fuenteAudio.Play();
+                    }
                     Instantiate(refBalaEnemigoTip2, new Vector3(transform.position.x - 0.2f, transform.position.y, transform.position.z), transform.rotation);
 
                     Instantiate(refBalaEnemigo, new Vector3(transform.position.x, transform.position.y, transform.position.z), transform.rotation);
@@ -550,6 +603,11 @@ public class Enemigo : MonoBehaviour {
                 }
                 if (dileyDisparoPatron6 <= 0)
                 {
+                    if (fuenteAudio != null)
+                    {
+                        fuenteAudio.clip = audioDisparo;
+                        fuenteAudio.Play();
+                    }
                     Instantiate(refBalaEnemigoTip2, new Vector3(transform.position.x - 0.2f, transform.position.y - 0.8f, transform.position.z), transform.rotation);
                     Instantiate(refBalaEnemigo, transform.position, transform.rotation);
                     Instantiate(refBalaEnemigoTip3, new Vector3(transform.position.x + 0.2f, transform.position.y - 0.8f, transform.position.z), transform.rotation);
@@ -591,6 +649,11 @@ public class Enemigo : MonoBehaviour {
                 }
                 if (dileyDisparoPatron6 <= 0)
                 {
+                    if (fuenteAudio != null)
+                    {
+                        fuenteAudio.clip = audioDisparo;
+                        fuenteAudio.Play();
+                    }
                     Instantiate(refBalaEnemigoTip3, new Vector3(transform.position.x - 0.8f, transform.position.y - 0.8f, transform.position.z), transform.rotation);
 
                     Instantiate(refBalaEnemigo, new Vector3(transform.position.x - 0.5f, transform.position.y - 0.8f, transform.position.z), transform.rotation);
@@ -628,6 +691,11 @@ public class Enemigo : MonoBehaviour {
                 }
                 if (dileyDisparoPatron6 <= 0)
                 {
+                    if (fuenteAudio != null)
+                    {
+                        fuenteAudio.clip = audioDisparo;
+                        fuenteAudio.Play();
+                    }
                     Instantiate(refBalaEnemigoTip2, new Vector3(transform.position.x - 2.24f, transform.position.y - 0.8f, transform.position.z), transform.rotation);
 
                     Instantiate(refBalaEnemigoTip2, new Vector3(transform.position.x - 1.60f, transform.position.y - 0.8f, transform.position.z), transform.rotation);
@@ -692,8 +760,13 @@ public class Enemigo : MonoBehaviour {
                     }
                     if (dileyDisparoPatron6 <= 0)
                     {
-                        //ACA INSTANCIAR LOS DISPAROS DEL ENEMIGO FINAL.
-                        Debug.Log("Instanciado Balas ENemigo final");
+                    if (fuenteAudio != null)
+                    {
+                        fuenteAudio.clip = audioDisparo;
+                        fuenteAudio.Play();
+                    }
+                    //ACA INSTANCIAR LOS DISPAROS DEL ENEMIGO FINAL.
+                    Debug.Log("Instanciado Balas ENemigo final");
                         Instantiate(refBalaEnemigoTip8, transform.position, transform.rotation);
                         Instantiate(refBalaEnemigoTip7, transform.position, transform.rotation);
                         dileyDisparoPatron6 = 0.8f;

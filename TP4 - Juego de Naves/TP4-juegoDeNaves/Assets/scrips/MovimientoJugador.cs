@@ -14,7 +14,7 @@ public class MovimientoJugador : MonoBehaviour {
     private float y;
 	void Start () {
         x = refJugador.transform.position.x;
-        y = refJugador.transform.position.z;
+        y = refJugador.transform.position.y;
         //transform.Rotate(new Vector3(90, 0, 0));
 	}
 	

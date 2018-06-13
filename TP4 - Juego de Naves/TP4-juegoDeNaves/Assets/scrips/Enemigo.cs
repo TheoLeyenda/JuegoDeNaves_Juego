@@ -414,23 +414,23 @@ public class Enemigo : MonoBehaviour {
             {
                 if (soloUnaVez)
                 {
-                    velocidadY = 0;
+                    //velocidadY = 0;
                     velocidadX = 0.1f;
                     soloUnaVez = false;
                 }
-                if (transform.position.x > 13)
+                if (transform.position.x > 15)
                 {
                     Debug.Log("Entre a izquierda");
                     velocidadX = -0.1f;
-                    velocidadY = velocidadY + -0.1f;
+                    velocidadY = velocidadY + -0.5f;
                 }
-                if (transform.position.x < -13)
+                if (transform.position.x < -15)
                 {
                     Debug.Log("Entre a Derecha");
                     velocidadX = 0.1f;
-                    velocidadY = velocidadY + -0.1f;
+                    velocidadY = velocidadY + -0.5f;
                 }
-                randDisparo = Random.Range(0, 1000);
+                randDisparo = Random.Range(0, 800);
                 if(randDisparo == 2)
                 {
                     Instantiate(refBalaEnemigo, transform.position, transform.rotation);

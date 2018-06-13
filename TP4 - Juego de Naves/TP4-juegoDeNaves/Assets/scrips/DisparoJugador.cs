@@ -17,6 +17,7 @@ public class DisparoJugador : MonoBehaviour {
     public GameObject SpriteBomba2;
     public GameObject SpriteBomba3;
     public AudioClip audioDisparo;
+    public AudioClip audioExplocion;
     private RaycastHit hit;
     public float rango;
     private int cantBombas;
@@ -66,6 +67,8 @@ public class DisparoJugador : MonoBehaviour {
         if (Input.GetKeyDown(KeyCode.Space) && cantBombas>0)
         {
             Debug.Log("EXplotion");
+            fuenteAudio.clip = audioExplocion;
+            fuenteAudio.Play();
             bombaJugador.SetActive(true);
             if (cantBombas == 3)
             {

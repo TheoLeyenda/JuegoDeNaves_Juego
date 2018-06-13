@@ -9,6 +9,13 @@ public class BarraVida : MonoBehaviour {
 	public float Vida = 100;
     private float danio = 0.5f;
     private float sanacion = 0;
+    public AudioClip audioPickUp;
+    public AudioClip audioVidaPotente;
+    AudioSource fuenteAudio;
+    private void Start()
+    {
+        fuenteAudio = GetComponent<AudioSource>();
+    }
     void Update()
     {
         if(Vida<0)
@@ -36,6 +43,8 @@ public class BarraVida : MonoBehaviour {
         }
         if (other.gameObject.tag == "ItemVida")
         {
+            fuenteAudio.clip = audioPickUp;
+            fuenteAudio.Play();
             if (Vida < 100)
             {
                 sanacion = 2f;
@@ -46,6 +55,8 @@ public class BarraVida : MonoBehaviour {
         }
         if (other.gameObject.tag == "ItemPoder")
         {
+            fuenteAudio.clip = audioPickUp;
+            fuenteAudio.Play();
             if (GameManager.tipoDisparo < 4)
             {
                 GameManager.tipoDisparo++;
@@ -54,6 +65,8 @@ public class BarraVida : MonoBehaviour {
         }
         if (other.gameObject.tag == "ItemVidaGigante")
         {
+            fuenteAudio.clip = audioVidaPotente;
+            fuenteAudio.Play();
             if (Vida < 100)
             {
                 sanacion = 25f;

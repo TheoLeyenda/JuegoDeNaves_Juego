@@ -48,6 +48,7 @@ public class ActivadorEnemigos5_Nivel1 : MonoBehaviour
     {
         if (activacion >= 1)
         {
+           
             Enemigo1.SetQuieto(false);
             Enemigo2.SetQuieto(false);
             Enemigo3.SetQuieto(false);

@@ -244,7 +244,14 @@ public class Enemigo : MonoBehaviour {
                         doblarDerecha = false;
                         doblarIzquierda = true;
                         //transform.Rotate(new Vector3(0, 0, 0));
-                        transform.Rotate(new Vector3(0, 0, 45));
+                        if (transform.rotation.z == 45)
+                        {
+                            transform.Rotate(new Vector3(0, 0, -45));
+                        }
+                        if (transform.rotation.z == -45)
+                        {
+                            transform.Rotate(new Vector3(0, 0, 45));
+                        }
                     }
                     if (transform.position.x <= -empezarCurvaMov2 && doblarIzquierda)
                     {
@@ -253,7 +260,14 @@ public class Enemigo : MonoBehaviour {
                         doblarIzquierda = false;
                         doblarDerecha = true;
                         //transform.Rotate(new Vector3(0, 0, 0));
-                        transform.Rotate(new Vector3(0, 0, -45));
+                        if (transform.rotation.z == 45)
+                        {
+                            transform.Rotate(new Vector3(0, 0, -45));
+                        }
+                        if (transform.rotation.z == -45)
+                        {
+                            transform.Rotate(new Vector3(0, 0, 45));
+                        }
                     }
                     if (dileyCambioDireccion <= 1f)
                     {
@@ -291,7 +305,14 @@ public class Enemigo : MonoBehaviour {
                         doblarDerecha = false;
                         doblarIzquierda = true;
                         //transform.Rotate(new Vector3(0, 0, 0));
-                        //transform.Rotate(new Vector3(0, 0, 45));
+                        if (transform.rotation.z == 45)
+                        {
+                            transform.Rotate(new Vector3(0, 0, -45));
+                        }
+                        if (transform.rotation.z == -45)
+                        {
+                            transform.Rotate(new Vector3(0, 0, 45));
+                        }
                     }
                     if (transform.position.x <= -empezarCurvaMov2 && doblarIzquierda)
                     {
@@ -300,7 +321,14 @@ public class Enemigo : MonoBehaviour {
                         doblarIzquierda = false;
                         doblarDerecha = true;
                         //transform.Rotate(new Vector3(0, 0, 0));
-                        //transform.Rotate(new Vector3(0, 0, -45));
+                        if (transform.rotation.z == 45)
+                        {
+                            transform.Rotate(new Vector3(0, 0, -45));
+                        }
+                        if (transform.rotation.z == -45)
+                        {
+                            transform.Rotate(new Vector3(0, 0, 45));
+                        }
                     }
                     if (dileyCambioDireccion <= 1f)
                     {

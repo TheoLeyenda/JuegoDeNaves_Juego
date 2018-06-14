@@ -32,8 +32,11 @@ public class DisparoJugador : MonoBehaviour {
 	void Update () {
         if (Input.GetKeyDown(KeyCode.Z))
         {
-            fuenteAudio.clip = audioDisparo;
-            fuenteAudio.Play();
+            if (fuenteAudio != null)
+            {
+                fuenteAudio.clip = audioDisparo;
+                fuenteAudio.Play();
+            }
             if (GameManager.tipoDisparo == 1)
             {
                 //GameManager.tipoBala = 1;
@@ -67,8 +70,11 @@ public class DisparoJugador : MonoBehaviour {
         if (Input.GetKeyDown(KeyCode.Space) && cantBombas>0)
         {
             Debug.Log("EXplotion");
-            fuenteAudio.clip = audioExplocion;
-            fuenteAudio.Play();
+            if (fuenteAudio != null)
+            {
+                fuenteAudio.clip = audioExplocion;
+                fuenteAudio.Play();
+            }
             bombaJugador.SetActive(true);
             if (cantBombas == 3)
             {

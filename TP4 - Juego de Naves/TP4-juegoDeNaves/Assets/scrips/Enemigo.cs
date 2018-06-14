@@ -55,6 +55,7 @@ public class Enemigo : MonoBehaviour {
     bool soloUnaVez;
     public AudioClip audioDisparo;
     AudioSource fuenteAudio;
+    private float rotacionZ;
     void Start() {
         vida = 100;
         movimientoX = 0;
@@ -77,6 +78,7 @@ public class Enemigo : MonoBehaviour {
         maxIzquierda = -9;
         dileyDisparoPatron6 = 0.8f;
         fuenteAudio = GetComponent<AudioSource>();
+        rotacionZ = transform.rotation.z;
         //tipoEnemigo = 0;
     }
     private void Awake()
@@ -244,7 +246,7 @@ public class Enemigo : MonoBehaviour {
                         doblarDerecha = false;
                         doblarIzquierda = true;
                         //transform.Rotate(new Vector3(0, 0, 0));
-                        if (transform.rotation.z == 45)
+                        /*if (transform.rotation.z == 45)
                         {
                             transform.Rotate(new Vector3(0, 0, -45));
                         }
@@ -252,6 +254,17 @@ public class Enemigo : MonoBehaviour {
                         {
                             transform.Rotate(new Vector3(0, 0, 45));
                         }
+                        if (transform.rotation.z == 30)
+                        {
+                            transform.Rotate(new Vector3(0, 0, -60));
+                        }
+                        if (transform.rotation.z == -30)
+                        {
+                            transform.Rotate(new Vector3(0, 0, 60));
+                        }*/
+                        rotacionZ = rotacionZ * -1;
+                        transform.Rotate(new Vector3(0, 0, rotacionZ));
+                        
                     }
                     if (transform.position.x <= -empezarCurvaMov2 && doblarIzquierda)
                     {
@@ -260,7 +273,7 @@ public class Enemigo : MonoBehaviour {
                         doblarIzquierda = false;
                         doblarDerecha = true;
                         //transform.Rotate(new Vector3(0, 0, 0));
-                        if (transform.rotation.z == 45)
+                        /*if (transform.rotation.z == 45)
                         {
                             transform.Rotate(new Vector3(0, 0, -45));
                         }
@@ -268,6 +281,16 @@ public class Enemigo : MonoBehaviour {
                         {
                             transform.Rotate(new Vector3(0, 0, 45));
                         }
+                        if (transform.rotation.z == 30)
+                        {
+                            transform.Rotate(new Vector3(0, 0, -60));
+                        }
+                        if (transform.rotation.z == -30)
+                        {
+                            transform.Rotate(new Vector3(0, 0, 60));
+                        }*/
+                        rotacionZ = rotacionZ * -1;
+                        transform.Rotate(new Vector3(0, 0, rotacionZ));
                     }
                     if (dileyCambioDireccion <= 1f)
                     {
@@ -305,7 +328,7 @@ public class Enemigo : MonoBehaviour {
                         doblarDerecha = false;
                         doblarIzquierda = true;
                         //transform.Rotate(new Vector3(0, 0, 0));
-                        if (transform.rotation.z == 45)
+                        /*if (transform.rotation.z == 45)
                         {
                             transform.Rotate(new Vector3(0, 0, -45));
                         }
@@ -313,6 +336,16 @@ public class Enemigo : MonoBehaviour {
                         {
                             transform.Rotate(new Vector3(0, 0, 45));
                         }
+                        if (transform.rotation.z == 60)
+                        {
+                            transform.Rotate(new Vector3(0, 0, -60));
+                        }
+                        if (transform.rotation.z == -60)
+                        {
+                            transform.Rotate(new Vector3(0, 0, 60));
+                        }*/
+                        rotacionZ = rotacionZ * -1;
+                        transform.Rotate(new Vector3(0, 0, rotacionZ));
                     }
                     if (transform.position.x <= -empezarCurvaMov2 && doblarIzquierda)
                     {
@@ -321,7 +354,7 @@ public class Enemigo : MonoBehaviour {
                         doblarIzquierda = false;
                         doblarDerecha = true;
                         //transform.Rotate(new Vector3(0, 0, 0));
-                        if (transform.rotation.z == 45)
+                        /*if (transform.rotation.z == 45)
                         {
                             transform.Rotate(new Vector3(0, 0, -45));
                         }
@@ -329,6 +362,16 @@ public class Enemigo : MonoBehaviour {
                         {
                             transform.Rotate(new Vector3(0, 0, 45));
                         }
+                        if (transform.rotation.z == 60)
+                        {
+                            transform.Rotate(new Vector3(0, 0, -60));
+                        }
+                        if (transform.rotation.z == -60)
+                        {
+                            transform.Rotate(new Vector3(0, 0, 60));
+                        }*/
+                        rotacionZ = rotacionZ * -1;
+                        transform.Rotate(new Vector3(0, 0, rotacionZ));
                     }
                     if (dileyCambioDireccion <= 1f)
                     {

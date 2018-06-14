@@ -1,0 +1,8 @@
+Estas Funciones se encargan de verificar si la camara que apunta al jugador esta en 
+contacto con una zona del nivel(box collider en el nivel) que activa a los enemigos/
+mueve a los enemigos que resive, para que estos empiecen su comportamiento.
+
+Utilizo estos activadores como controladores del nivel para que los enemigos 
+no empiecen sus patrones de movimiento/ataque antes de tiempo.
+
+ 

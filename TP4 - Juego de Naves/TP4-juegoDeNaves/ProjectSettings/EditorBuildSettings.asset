@@ -8,9 +8,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/escenas/Nivel1.unity
     guid: 4bb569a7f64be454384bdddc252edc84
-  - enabled: 1
-    path: Assets/escenas/EscenaFinal.unity
-    guid: f72b5862b6522084aabf358c8cb1238a
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 1
     path: Assets/escenas/Texto_Nivel2.unity
     guid: 1dbe277f9a6fa8e4e953935bf82c3d0e
@@ -20,3 +20,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/escenas/Nivel2.unity
     guid: a02db15b012d8f34f85a627a11d55528
+  - enabled: 1
+    path: Assets/escenas/GameOver.unity
+    guid: 7ae67fecf3265904786f71662c51112b

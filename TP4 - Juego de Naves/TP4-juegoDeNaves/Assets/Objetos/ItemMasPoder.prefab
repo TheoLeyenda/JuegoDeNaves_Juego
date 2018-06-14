@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4067030846888614}
   - component: {fileID: 212087100288095812}
   - component: {fileID: 65857559778353008}
+  - component: {fileID: 114529149042084468}
   - component: {fileID: 54050780341707414}
   m_Layer: 0
   m_Name: ItemMasPoder
@@ -69,6 +70,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.11, y: 0.05, z: 0.2}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &114529149042084468
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1754258421609038}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef4e0625acf6b274cad664a29c442691, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  refCamara: {fileID: 20146581269593862, guid: 04ae7aaffd51a3f4db78f4ea1d1b739e, type: 2}
 --- !u!212 &212087100288095812
 SpriteRenderer:
   m_ObjectHideFlags: 1

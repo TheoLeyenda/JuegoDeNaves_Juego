@@ -12,6 +12,7 @@ public class DisparoJugador : MonoBehaviour {
     public GameObject TipoBala3;
     public GameObject TipoBala4;
     public GameObject TipoBala5;
+    public GameObject TipoBala6;
     public GameObject bombaJugador;
     public GameObject SpriteBomba1;
     public GameObject SpriteBomba2;
@@ -65,6 +66,27 @@ public class DisparoJugador : MonoBehaviour {
                 Instantiate(TipoBala3, new Vector3(spawnBala.position.x + -0.4f, spawnBala.position.y + 0.8f, spawnBala.position.z), Quaternion.identity);
                 Instantiate(TipoBala4, new Vector3(spawnBala.position.x + -0.5f, spawnBala.position.y, spawnBala.position.z), Quaternion.identity);
                 Instantiate(TipoBala5, new Vector3(spawnBala.position.x + 0.5f, spawnBala.position.y, spawnBala.position.z), Quaternion.identity);
+            }
+            if (GameManager.tipoDisparo == 5)
+            {
+                Instantiate(TipoBala1, new Vector3(spawnBala.position.x + 0.2f, spawnBala.position.y + 0.8f, spawnBala.position.z), Quaternion.identity);
+                Instantiate(TipoBala1, new Vector3(spawnBala.position.x - 0.2f, spawnBala.position.y + 0.8f, spawnBala.position.z), Quaternion.identity);
+                Instantiate(TipoBala2, new Vector3(spawnBala.position.x + 0.4f, spawnBala.position.y + 0.8f, spawnBala.position.z), Quaternion.identity);
+                Instantiate(TipoBala3, new Vector3(spawnBala.position.x + -0.4f, spawnBala.position.y + 0.8f, spawnBala.position.z), Quaternion.identity);
+                Instantiate(TipoBala4, new Vector3(spawnBala.position.x + -0.5f, spawnBala.position.y, spawnBala.position.z), Quaternion.identity);
+                Instantiate(TipoBala5, new Vector3(spawnBala.position.x + 0.5f, spawnBala.position.y, spawnBala.position.z), Quaternion.identity);
+                Instantiate(TipoBala6, new Vector3(spawnBala.position.x, spawnBala.position.y - 0.8f, spawnBala.position.z), Quaternion.identity);
+            }
+            if (GameManager.tipoDisparo == 6)
+            {
+                Instantiate(TipoBala1, new Vector3(spawnBala.position.x + 0.2f, spawnBala.position.y + 0.8f, spawnBala.position.z), Quaternion.identity);
+                Instantiate(TipoBala1, new Vector3(spawnBala.position.x - 0.2f, spawnBala.position.y + 0.8f, spawnBala.position.z), Quaternion.identity);
+                Instantiate(TipoBala2, new Vector3(spawnBala.position.x + 0.4f, spawnBala.position.y + 0.8f, spawnBala.position.z), Quaternion.identity);
+                Instantiate(TipoBala3, new Vector3(spawnBala.position.x - 0.4f, spawnBala.position.y + 0.8f, spawnBala.position.z), Quaternion.identity);
+                Instantiate(TipoBala4, new Vector3(spawnBala.position.x - 0.5f, spawnBala.position.y, spawnBala.position.z), Quaternion.identity);
+                Instantiate(TipoBala5, new Vector3(spawnBala.position.x + 0.5f, spawnBala.position.y, spawnBala.position.z), Quaternion.identity);
+                Instantiate(TipoBala6, new Vector3(spawnBala.position.x + 0.2f, spawnBala.position.y - 0.8f, spawnBala.position.z), Quaternion.identity);
+                Instantiate(TipoBala6, new Vector3(spawnBala.position.x - 0.2f, spawnBala.position.y - 0.8f, spawnBala.position.z), Quaternion.identity);
             }
         }
         if (Input.GetKeyDown(KeyCode.Space) && cantBombas>0)

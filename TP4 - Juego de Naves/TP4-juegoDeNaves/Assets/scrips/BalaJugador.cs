@@ -61,19 +61,26 @@ public class BalaJugador : MonoBehaviour {
             direccion = new Vector3(transform.position.x + velocidadX, transform.position.y + velocidadY + velocidadY, transform.position.z);
             transform.position = direccion;
         }
-        if (transform.position.x > refCamara.transform.position.x + 25)
+        if (_tipoBala == 6)
+        {
+            velocidadY = -0.5f;
+            velocidadX = 0f;
+            direccion = new Vector3(transform.position.x + velocidadX, transform.position.y + velocidadY + velocidadY, transform.position.z);
+            transform.position = direccion;
+        }
+        if (transform.position.x > refCamara.transform.position.x+25)
         {
             Destroy(this.gameObject);
         }
-        if (transform.position.x < -refCamara.transform.position.x - 25)
+        if (transform.position.x < -refCamara.transform.position.x-25)
         {
             Destroy(this.gameObject);
         }
-        if (transform.position.y > refCamara.transform.position.y + 15)
+        if (transform.position.y > refCamara.transform.position.y + 10)
         {
             Destroy(this.gameObject);
         }
-        if (transform.position.y < -refCamara.transform.position.y - 25)
+        if (transform.position.y < -refCamara.transform.position.y - 10)
         {
             Destroy(this.gameObject);
         }

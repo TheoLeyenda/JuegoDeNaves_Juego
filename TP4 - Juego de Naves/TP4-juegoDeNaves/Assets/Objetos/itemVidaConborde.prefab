@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4831694936460666}
   - component: {fileID: 212204712624414498}
   - component: {fileID: 65602466146490322}
+  - component: {fileID: 114081774192330782}
   - component: {fileID: 54551149565316886}
   m_Layer: 0
   m_Name: itemVidaConborde
@@ -69,6 +70,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.11, y: 0.05, z: 0.2}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &114081774192330782
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1628154389541842}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef4e0625acf6b274cad664a29c442691, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  refCamara: {fileID: 20146581269593862, guid: 04ae7aaffd51a3f4db78f4ea1d1b739e, type: 2}
 --- !u!212 &212204712624414498
 SpriteRenderer:
   m_ObjectHideFlags: 1

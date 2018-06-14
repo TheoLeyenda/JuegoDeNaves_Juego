@@ -21,7 +21,7 @@ public class BarraVida : MonoBehaviour {
         if(Vida<0)
         {
             Destroy(this.gameObject);
-            SceneManager.LoadScene("EscenaFinal");
+            SceneManager.LoadScene("GameOver");
         }
     }
     private void OnTriggerEnter(Collider other)
@@ -57,7 +57,7 @@ public class BarraVida : MonoBehaviour {
         {
             fuenteAudio.clip = audioPickUp;
             fuenteAudio.Play();
-            if (GameManager.tipoDisparo < 4)
+            if (GameManager.tipoDisparo < 6)
             {
                 GameManager.tipoDisparo++;
             }
@@ -69,7 +69,7 @@ public class BarraVida : MonoBehaviour {
             fuenteAudio.Play();
             if (Vida < 100)
             {
-                sanacion = 25f;
+                sanacion = 15f;
                 Vida = Vida + sanacion;
                 BarraDeVida.size = Vida / 100;
             }

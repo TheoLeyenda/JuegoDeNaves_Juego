@@ -25,7 +25,7 @@ public class BombaJugador : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
       timer = timer + Time.deltaTime;
-        if (timer > 1) // cuando el timer sea mayor que uno desactiva el objeto
+        if (timer > 0.2f) // cuando el timer sea mayor que uno desactiva el objeto
         {
             timer = 0;
             gameObject.SetActive(false);

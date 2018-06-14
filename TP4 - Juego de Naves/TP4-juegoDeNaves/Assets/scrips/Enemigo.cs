@@ -56,6 +56,7 @@ public class Enemigo : MonoBehaviour {
     public AudioClip audioDisparo;
     AudioSource fuenteAudio;
     private float rotacionZ;
+    public GameObject refNivel;
     void Start() {
         vida = 100;
         movimientoX = 0;
@@ -69,6 +70,7 @@ public class Enemigo : MonoBehaviour {
         segundaCurvaMov1 = true;
         inicialX = transform.position.x;
         inicialY = transform.position.y;
+        
         asignarDiley = 0.8f;// cada este tiepoDisparara
         dileyDisparo = asignarDiley;
         empezarCurvaMov2 = 11;
@@ -95,6 +97,13 @@ public class Enemigo : MonoBehaviour {
             if (transform.position.y < (refCamara.transform.position.y + 25) * -1 || transform.position.x > refCamara.pixelWidth + 10 || transform.position.x < (refCamara.pixelWidth + 10) * -1)
             {
                 Destroy(this.gameObject);
+            }
+            if (refNivel != null)
+            {
+                if (transform.position.y > refNivel.transform.position.y)
+                {
+                    Destroy(this.gameObject);
+                }
             }
             if (tipoEnemigo == 1)
             {
